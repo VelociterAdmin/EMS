@@ -5,12 +5,12 @@ public class Employee {
 	private String lastName;
 	private String employeeId;
 	private String employeeEmailId;
-	private long   mobileNumber;
+	private String mobileNumber;
 	private String employeeFatherName;
 	private String employeeMotherName;
 	private String designation;
-	private String userName;
-	private String Password;
+	private String username;
+	private String password;
 
 	Address address = new Address();
 
@@ -46,11 +46,11 @@ public class Employee {
 		this.employeeEmailId = employeeEmailId;
 	}
 
-	public long getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(long mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
@@ -78,20 +78,20 @@ public class Employee {
 		this.designation = designation;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 
 	public Address getAddress() {
@@ -101,6 +101,6 @@ public class Employee {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
 
-	}
+
+}
