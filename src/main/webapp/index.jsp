@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<a href="jsp/Registration.jsp">Register</a>
 </body>
 </html>

@@ -5,8 +5,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.velociter.ems.helper.DatabaseConnection;
 import com.velociter.ems.pojo.Employee;
 
 /**
@@ -37,8 +38,6 @@ public class RegistrationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
 
 		response.setContentType("text/html");
 		PrintWriter writter = response.getWriter();
@@ -61,8 +60,8 @@ public class RegistrationServlet extends HttpServlet {
 		employee.setUsername(request.getParameter("username"));
 		employee.setPassword(request.getParameter("password"));
 
-		/**
-		 * writter.print(employee.getFirstName());
+		
+		 /* writter.print(employee.getFirstName());
 		 * writter.print(employee.getLastName());
 		 * writter.print(employee.getEmployeeId());
 		 * writter.print(employee.getEmployeeEmailId());
@@ -78,7 +77,17 @@ public class RegistrationServlet extends HttpServlet {
 		 * writter.print(employee.getAddress().getPincode());
 		 */
 
+		try {
+			DatabaseConnection db = new DatabaseConnection();
+			db.setCon();
+			Connection con = db.getCon();
+			PreparedStatement st = con.prepareStatement("insert into testTable values(?)");
+			st.setString(1, employee.getFirstName());
+			ResultSet rs = st.executeQuery();
+			
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-
 }
