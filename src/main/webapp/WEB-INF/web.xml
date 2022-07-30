@@ -13,8 +13,24 @@
   <servlet-name>Register</servlet-name>
   <servlet-class>com.velociter.ems.servlets.RegistrationServlet</servlet-class>
   </servlet>
+   <servlet>
+  
+  <servlet-name>LoginServlet</servlet-name>
+  
+  <servlet-class>com.velociter.ems.servlets.LoginServlet</servlet-class>
+
+  </servlet>
+  
   <servlet-mapping>
   <servlet-name>Register</servlet-name>
   <url-pattern>/jsp/RegistrationServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping> 
+ 
+  <servlet-name>LoginServlet</servlet-name>
+ 
+  <url-pattern>/jsp/LoginServlet</url-pattern>
+  
+  </servlet-mapping>
+  
 </web-app>
