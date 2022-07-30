@@ -3,10 +3,11 @@ package com.velociter.ems.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.velociter.ems.helper.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +37,8 @@ public class RegistrationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Connection con = DatabaseConnection.getConnection();
+		
+		
 
 		response.setContentType("text/html");
 		PrintWriter writter = response.getWriter();
@@ -45,7 +47,7 @@ public class RegistrationServlet extends HttpServlet {
 		employee.setLastName(request.getParameter("employeeLastName"));
 		employee.setEmployeeId(request.getParameter("employeeId"));
 		employee.setEmployeeEmailId(request.getParameter("employeeEmailId"));
-		employee.setMobileNumber(Long.parseLong(request.getParameter("mobileNumber")));
+		employee.setMobileNumber(request.getParameter("mobileNumber"));
 		employee.setEmployeeFatherName(request.getParameter("employeeFather'sName"));
 		employee.setEmployeeMotherName(request.getParameter("employeeMother'sName"));
 		employee.getAddress().setHouseNumber(request.getParameter("houseNo."));
@@ -56,8 +58,9 @@ public class RegistrationServlet extends HttpServlet {
 		employee.getAddress().setCountry(request.getParameter("country"));
 		employee.getAddress().setPincode(Integer.parseInt(request.getParameter("pincode")));
 		employee.setDesignation(request.getParameter("designation"));
-		employee.setUserName(request.getParameter("username"));
+		employee.setUsername(request.getParameter("username"));
 		employee.setPassword(request.getParameter("password"));
+
 		/**
 		 * writter.print(employee.getFirstName());
 		 * writter.print(employee.getLastName());
@@ -75,15 +78,7 @@ public class RegistrationServlet extends HttpServlet {
 		 * writter.print(employee.getAddress().getPincode());
 		 */
 
-		try {
-			PreparedStatement prstm = con
-					.prepareStatement("Insert into employee(emp_id,firstname,lastname) vlaues(?,?,?)  ");
-			prstm.setString(1, employee.getEmployeeId());
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 }
