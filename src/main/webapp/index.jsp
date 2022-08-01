@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>EMS</title>
 </head>
 <body>
-<a href="jsp/Registration.jsp">Register</a>
+
+<% response.sendRedirect("jsp/Login.jsp"); %>
 </body>
 </html>
