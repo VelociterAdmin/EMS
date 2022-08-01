@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Registration</title>
 </head>
 <form action="RegistrationServlet" method="Post">
 	<table align="center">
@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td>Employee ID</td>
-			<td><input type="number" name="employeeId"></td>
+			<td><input type="text" name="employeeId"></td>
 		</tr>
 		<tr>
 			<td>Email Address</td>
@@ -26,7 +26,7 @@
 		</tr>
 		<tr>
 			<td>Mobile Number</td>
-			<td><input type="number" name="mobileNumber"></td>
+			<td><input type="text" name="mobileNumber"></td>
 		</tr>
 		<tr>
 			<td>Father's Name</td>
@@ -92,13 +92,19 @@
 			<td>Password</td>
 			<td><input type="password" name="password"></td>
 		</tr>
+		<tr>
+			<td>Confirm Password</td>
+			<td><input type="password" name="confirmPassword"></td>
+		</tr>
 		<table align="center">
 
 			<tr>
 				<td><br> <input type="submit" name="submitButton"
 					value="Submit"></br></td>
 				<td><br> <input type="reset" name="resetButton"
-					value="Reset"></br></td>
+					value="Reset"></br>
+					<a href="login.jsp">Login</a>
+					</td>	
 			</tr>
 		</table>
 		</form>
