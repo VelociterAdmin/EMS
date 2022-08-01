@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +41,7 @@ public class RegistrationServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
-		PrintWriter writter = response.getWriter();
+		// PrintWriter writter = response.getWriter();
 		Employee employee = new Employee();
 		employee.setFirstName(request.getParameter("employeeName"));
 		employee.setLastName(request.getParameter("employeeLastName"));
@@ -60,8 +61,8 @@ public class RegistrationServlet extends HttpServlet {
 		employee.setUsername(request.getParameter("username"));
 		employee.setPassword(request.getParameter("password"));
 
-		
-		 /* writter.print(employee.getFirstName());
+		/*
+		 * writter.print(employee.getFirstName());
 		 * writter.print(employee.getLastName());
 		 * writter.print(employee.getEmployeeId());
 		 * writter.print(employee.getEmployeeEmailId());
@@ -78,13 +79,39 @@ public class RegistrationServlet extends HttpServlet {
 		 */
 
 		try {
-			DatabaseConnection db = new DatabaseConnection();
-			db.setCon();
-			Connection con = db.getCon();
-			PreparedStatement st = con.prepareStatement("insert into testTable values(?)");
-			st.setString(1, employee.getFirstName());
-			ResultSet rs = st.executeQuery();
-			
+			DatabaseConnection dbcObj = new DatabaseConnection();
+			dbcObj.setCon();
+			Connection con = dbcObj.getCon();
+			PreparedStatement prepObj = con.prepareStatement(
+					"insert into employee(firstname,lastname,empid,email,mobile_no,fathername,mothername,designation,username,password) values(?,?,?,?,?,?,?,?,?,?)");
+			prepObj.setString(1, employee.getFirstName());
+			prepObj.setString(2, employee.getLastName());
+			prepObj.setString(3, employee.getEmployeeId());
+			prepObj.setString(4, employee.getEmployeeEmailId());
+			prepObj.setString(5, employee.getMobileNumber());
+			prepObj.setString(6, employee.getEmployeeFatherName());
+			prepObj.setString(7, employee.getEmployeeMotherName());
+			prepObj.setString(8, employee.getDesignation());
+			prepObj.setString(9, employee.getUsername());
+			prepObj.setString(10, employee.getPassword());
+
+			ResultSet resultObj = prepObj.executeQuery();
+
+			PreparedStatement prepObj2 = con.prepareStatement(
+					"insert into address(houseno,streetname,locality,city,state,country,pincode) values(?,?,?,?,?,?,?)");
+			prepObj2.setString(1, employee.getAddress().getHouseNumber());
+			prepObj2.setString(2, employee.getAddress().getStreetName());
+			prepObj2.setString(3, employee.getAddress().getLocalityName());
+			prepObj2.setString(4, employee.getAddress().getCity());
+			prepObj2.setString(5, employee.getAddress().getState());
+			prepObj2.setString(6, employee.getAddress().getCountry());
+			prepObj2.setInt(7, employee.getAddress().getPincode());
+
+			ResultSet resultObj2 = prepObj2.executeQuery();
+			if (resultObj != null & resultObj2 != null) {
+				RequestDispatcher rdObj = request.getRequestDispatcher("Login.jsp");
+				rdObj.forward(request, response);
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
