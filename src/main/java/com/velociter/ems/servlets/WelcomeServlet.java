@@ -1,3 +1,4 @@
+
 package com.velociter.ems.servlets;
 
 import java.io.IOException;
@@ -45,11 +46,12 @@ public class WelcomeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
+
 		Employee emp = new Employee();
 	try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","system");
-		PreparedStatement ps=con.prepareStatement("select * from emp where empname=? and city=?");
+		PreparedStatement ps=con.prepareStatement("select * from employee where username=? and password=?");
 		ps.setString(1,emp.getUsername());
 		ps.setString(2,emp.getPassword());
 		ResultSet rs= ps.executeQuery();
