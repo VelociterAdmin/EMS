@@ -101,7 +101,7 @@ public class RegistrationServlet extends HttpServlet {
 			ResultSet resultObj = prepObj.executeQuery();  //storing the status of query
 
 			PreparedStatement prepObj2 = con.prepareStatement(
-					"insert into address(houseno,streetname,locality,city,state,country,pincode) values(?,?,?,?,?,?,?)");
+					"insert into address(houseno,streetname,locality,city,state,country,pincode,empid) values(?,?,?,?,?,?,?,?)");
 			prepObj2.setString(1, employee.getAddress().getHouseNumber());
 			prepObj2.setString(2, employee.getAddress().getStreetName());
 			prepObj2.setString(3, employee.getAddress().getLocalityName());
@@ -109,6 +109,7 @@ public class RegistrationServlet extends HttpServlet {
 			prepObj2.setString(5, employee.getAddress().getState());
 			prepObj2.setString(6, employee.getAddress().getCountry());
 			prepObj2.setInt(7, employee.getAddress().getPincode());
+			prepObj2.setString(8, employee.getEmployeeId());
 
 			ResultSet resultObj2 = prepObj2.executeQuery();
 			if (resultObj != null & resultObj2 != null) {
