@@ -9,9 +9,16 @@
 <title>Welcome</title>
 <style>
 body{ 
-background-color:Skyblue; 
-    color: blue;
-     
+   
+    margin: 20px;  
+    padding: 20px;
+    color : white;
+    background-image: url('../Resources/Background.png');
+    background-repeat:no-repeat;
+    background-attachment:fixed;  
+    background-size: cover;  
+    font-family: 'Arial';  
+
   }  
 h1{
  font-size:100px;
@@ -22,10 +29,12 @@ h1{
 
 <body>
 
-	<h1 align="center">WELCOME<h1 align="center">
+	<h1> WELCOME</h1>
+<h1>
 <%=
 request.getAttribute("firstname")
 %>
-</h1>
+</h1><br><br>
+<a href="http://localhost:8081/EMS">home</a>
 </body>
 </html>

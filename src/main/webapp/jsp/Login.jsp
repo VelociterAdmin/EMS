@@ -5,26 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<style type="text/css">
-body  
-{  
-    margin: 20px;  
-    padding: 20px;  
-    background-color:Skyblue;  
-    font-family: 'Arial';  
-}  
-
-</style>
-
+<link rel="stylesheet"href="../Style.css">
 </head>
 <body>
 
 	<form  action="LoginServlet" method="Post">
-		<table align="center">
+		<table class="LoginTable">
+		
 
 
 			<tr>
-				<td>Username</td>
+				<td>Username</td><br>
 				<td><input type="text" name="Username"></td>
 				<br>
 				<br>
@@ -40,6 +31,7 @@ body
 			</tr>
 
 		</table>
+		
 	</form>
 
 </body>
