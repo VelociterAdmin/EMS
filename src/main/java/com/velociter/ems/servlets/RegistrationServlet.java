@@ -81,10 +81,13 @@ public class RegistrationServlet extends HttpServlet {
 		try {
 			DatabaseConnection dbcObj = new DatabaseConnection(); //creating object of DatabaseConnection
 			dbcObj.setCon();           //setting connection
-			Connection con = dbcObj.getCon();   //
-			PreparedStatement prepObj = con.prepareStatement(
-					"insert into employee(firstname,lastname,empid,email,mobile_no,fathername,mothername,designation,username,password) values(?,?,?,?,?,?,?,?,?,?)");
-			prepObj.setString(1, employee.getFirstName());
+			Connection con = dbcObj.getCon();   //establishing the connection
+			PreparedStatement prepObj = con.prepareStatement(          //it gives permission to write sql query
+					"insert into employee(firstname,lastname,"
+					+ "empid,email,mobile_no,fathername,"
+					+ "mothername,designation,username"
+					+ ",password) values(?,?,?,?,?,?,?,?,?,?)");
+			prepObj.setString(1, employee.getFirstName());        //setting the values in sql query from employee class
 			prepObj.setString(2, employee.getLastName());
 			prepObj.setString(3, employee.getEmployeeId());
 			prepObj.setString(4, employee.getEmployeeEmailId());
@@ -95,7 +98,7 @@ public class RegistrationServlet extends HttpServlet {
 			prepObj.setString(9, employee.getUsername());
 			prepObj.setString(10, employee.getPassword());
 
-			ResultSet resultObj = prepObj.executeQuery();
+			ResultSet resultObj = prepObj.executeQuery();  //storing the status of query
 
 			PreparedStatement prepObj2 = con.prepareStatement(
 					"insert into address(houseno,streetname,locality,city,state,country,pincode) values(?,?,?,?,?,?,?)");

@@ -3,29 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<Style>
-td {
-	color: black;
-	padding: 20px;
-	font-size: 15px;
-	font-family: 'Arial';
-}
-
-input[type="text"], input[type="password"], input[type="number"] {
-	width: 90%;
-}
-
-body {
-	background-color: lightblue;
-}
-</Style>
-<h1 align="center">Registration Page</h1>
+<link rel="Stylesheet" href="../Style.css">
+<h1 align="left">Registration Page</h1>
 <meta charset="UTF-8">
 <title>Registration</title>
 </head>
 <body>
 	<form action="RegistrationServlet" method="Post">
-		<table align="center">
+		<table class="ResgitrationTable">
 			<tr>
 				<td>First Name</td>
 				<td><input type="text" name="employeeName" required></td>
@@ -61,8 +46,9 @@ body {
 				<td></td>
 				<td>
 
-					<table align="center">
+					<table align="left">
 						<tr>
+						
 							<td>House no</td>
 							<td><input type="text" name="houseNo." required></td>
 						</tr>
