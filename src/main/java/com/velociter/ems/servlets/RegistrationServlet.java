@@ -37,10 +37,10 @@ public class RegistrationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)  //dopost is used to give and take request and response
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
+		response.setContentType("text/html");                 //set the content of the page as text and html
 		// PrintWriter writter = response.getWriter();
 		Employee employee = new Employee();
 		employee.setFirstName(request.getParameter("employeeName"));
@@ -79,9 +79,9 @@ public class RegistrationServlet extends HttpServlet {
 		 */
 
 		try {
-			DatabaseConnection dbcObj = new DatabaseConnection();
-			dbcObj.setCon();
-			Connection con = dbcObj.getCon();
+			DatabaseConnection dbcObj = new DatabaseConnection(); //creating object of DatabaseConnection
+			dbcObj.setCon();           //setting connection
+			Connection con = dbcObj.getCon();   //
 			PreparedStatement prepObj = con.prepareStatement(
 					"insert into employee(firstname,lastname,empid,email,mobile_no,fathername,mothername,designation,username,password) values(?,?,?,?,?,?,?,?,?,?)");
 			prepObj.setString(1, employee.getFirstName());
