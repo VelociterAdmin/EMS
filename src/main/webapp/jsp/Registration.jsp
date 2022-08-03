@@ -4,11 +4,12 @@
 <html>
 <head>
 <link rel="Stylesheet" href="../Style.css">
-<h1 align="left">Registration Page</h1>
 <meta charset="UTF-8">
 <title>Registration</title>
 </head>
 <body>
+	<h1 align="left">Registration Page</h1>
+
 	<form action="RegistrationServlet" method="Post">
 		<table class="ResgitrationTable">
 			<tr>
@@ -48,7 +49,7 @@
 
 					<table align="left">
 						<tr>
-						
+
 							<td>House no</td>
 							<td><input type="text" name="houseNo." required></td>
 						</tr>
