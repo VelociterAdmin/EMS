@@ -6,6 +6,16 @@
 <link rel="Stylesheet" href="../Style.css">
 <meta charset="UTF-8">
 <title>Registration</title>
+<script type="text/javascript">
+function verifyPassword(){
+	var password = document.getElementById("p1");
+	var confirmPassword = document.getElementById("p2");
+	if(var!=var2){
+		alert("Password does not match");
+	}
+	
+}
+</script>
 </head>
 <body>
 	<h1 align="left">Registration Page</h1>
@@ -95,18 +105,20 @@
 			</tr>
 			<tr>
 				<td>Password</td>
-				<td><input type="password" name="password" required></td>
+				<td><input type="password" name="password" id="p1" required></td>
 			</tr>
 			<tr>
 				<td>Confirm Password</td>
-				<td><input type="password" name="confirmPassword" required></td>
+				<td><input type="password" name="confirmPassword" id="p2"
+					required></td>
 			</tr>
 
 
 			<tr>
 				<td colspan=2 align=center><br> <input type="submit"
-					name="submitButton" value="Submit"> <input type="reset"
-					name="resetButton" value="Reset"></br> <a href="Login.jsp">Login</a></td>
+					name="submitButton" value="Submit">
+					<input type="reset" name="resetButton" value="Reset"> </br> 
+					<a href="Login.jsp">Login</a></td>
 			</tr>
 
 

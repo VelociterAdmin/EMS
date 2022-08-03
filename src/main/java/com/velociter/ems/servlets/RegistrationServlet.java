@@ -59,7 +59,7 @@ public class RegistrationServlet extends HttpServlet {
 		employee.getAddress().setPincode(Integer.parseInt(request.getParameter("pincode")));
 		employee.setDesignation(request.getParameter("designation"));
 		employee.setUsername(request.getParameter("username"));
-		employee.setPassword(request.getParameter("password"));
+		employee.setPassword(request.getParameter("confirmPassword"));
 
 		/*
 		 * writter.print(employee.getFirstName());
