@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="Stylesheet" href="../Style.css">
 <title>Welcome</title>
 <style>
 body{ 
