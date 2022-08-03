@@ -105,7 +105,7 @@
 			<tr>
 				<td colspan=2 align=center><br> <input type="submit"
 					name="submitButton" value="Submit"> <input type="reset"
-					name="resetButton" value="Reset"></br> <a href="login.jsp">Login</a></td>
+					name="resetButton" value="Reset"></br> <a href="Login.jsp">Login</a></td>
 			</tr>
 
 
