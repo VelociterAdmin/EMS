@@ -15,10 +15,9 @@
 
 
 			<tr>
-				<td>Username</td><br>
+				<td>Username</td>
 				<td><input type="text" name="Username" required></td>
-				<br>
-				<br>
+				
 			</tr>
 			<tr>
 				<td>Password</td>

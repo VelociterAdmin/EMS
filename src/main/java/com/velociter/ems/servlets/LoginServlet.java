@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +19,7 @@ import com.velociter.ems.pojo.Employee;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
+//@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -54,20 +53,20 @@ public class LoginServlet extends HttpServlet {
 				rd.forward(request, response);
 			} else {
 				// if password is wrong then include on login page
-				writer.print("Password is incorrect");
+				writer.print("Password is Incorrect");
 				RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 				rd.include(request, response);
 			}
 		} else {
 			// if username is wrong then include on login page
-			writer.print("Username is incorrect");
+			writer.print("Username is Incorrect");
 			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 			rd.include(request, response);
 
 		}
 	}
 
-	// validate() to check username 
+	// validate() to check username
 	public static boolean validateUsername(String username) {
 		boolean status = false;
 		try {
@@ -85,6 +84,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		return status;
 	}
+
 	// validate() to check password
 	public static boolean validatePassword(String password, HttpServletRequest request) {
 		boolean checkpassword = false;
@@ -93,12 +93,10 @@ public class LoginServlet extends HttpServlet {
 			db.setCon();
 			Connection con = db.getCon(); // establishing the connection
 			PreparedStatement prestate = con.prepareStatement("select empid from employee where password=?");
-			prestate.setString(1, password); 	//set the username
-			ResultSet set = prestate.executeQuery(); 	//get the data from database
-			checkpassword = set.next();  			//storing the status of ResulSet
-			request.setAttribute("empID", set.getString("empid"));  	//set attribute of employeeID
-
-
+			prestate.setString(1, password); // set the username
+			ResultSet set = prestate.executeQuery(); // get the data from database
+			checkpassword = set.next(); // storing the status of ResulSet
+			request.setAttribute("empID", set.getString("empid")); // set attribute of employeeID
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -48,7 +48,7 @@ input[type="text"], input[type="password"], input[type="number"], input[type="em
     height: 15%;
 }
 .tabContainer .buttonContainer button{
-    width: 33%;
+    width: 33.33%;
     height: 100%;
     float: left;
     border: none;
@@ -59,10 +59,13 @@ input[type="text"], input[type="password"], input[type="number"], input[type="em
     font-size: 18px;
     background-color: #ff8040;
 }
+
 .tabContainer .buttonContainer button:hover{
     background-color: #d7d4d4;
 }
+
 .tabContainer .tabPanel{
+	align-content:center;
     height: 85%;
     background-color: gray;
     color: white;

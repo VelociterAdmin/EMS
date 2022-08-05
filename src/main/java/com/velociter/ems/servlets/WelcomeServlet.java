@@ -2,27 +2,23 @@
 package com.velociter.ems.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.velociter.ems.helper.DatabaseConnection;
-import com.velociter.ems.pojo.Employee;
 
 /**
  * Servlet implementation class WelcomeServlet
  */
-@WebServlet("/WelcomeServlet")
+//@WebServlet("/WelcomeServlet")
 public class WelcomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -38,6 +34,7 @@ public class WelcomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -82,7 +79,7 @@ public class WelcomeServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp"); // request dispatch on welcome page
 			rd.forward(request, response);
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}

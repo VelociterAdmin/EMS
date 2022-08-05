@@ -78,8 +78,31 @@
 			</table>
 		</div>
 		<div class="tabPanel">
-		Education Section in progress
-		
+			Education Section in progress
+			<form action="#" method="post">
+				<table>
+					<tr>
+						<td>Secondry</td>
+						<td><input type="text" name="secondryEdu" required></td>
+					</tr>
+					<tr>
+						<td>Higher Secondry</td>
+						<td><input type="text" name="highSecEdu" required></td>
+					</tr>
+					<tr>
+						<td>Graduation</td>
+						<td><input type="text" name="graduation" required></td>
+					</tr>
+					<tr>
+						<td>Post Graduation</td>
+						<td><input type="text" name="postGraduation" required></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit"
+							value="Save"></td>
+					</tr>
+				</table>
+			</form>
 		</div>
 	</div>
 
