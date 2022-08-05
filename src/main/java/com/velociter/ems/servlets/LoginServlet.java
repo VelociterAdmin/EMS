@@ -48,12 +48,11 @@ public class LoginServlet extends HttpServlet {
 		employee.setPassword(request.getParameter("Password")); // set the password into employee class
 
 		if (validateUsername(employee.getUsername())) { // passing the username and password to validate()
-			if (validatePassword(employee.getPassword(),request)) {
+			if (validatePassword(employee.getPassword(), request)) {
 				// if username and password is correct then dispatch to the welcome page
-				RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("WelcomeEmp");
 				rd.forward(request, response);
-			}
-			else {
+			} else {
 				writer.print("Password is incorrect");
 				RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 				rd.include(request, response);
@@ -75,40 +74,33 @@ public class LoginServlet extends HttpServlet {
 			db.setCon();
 			Connection con = db.getCon(); // establishing the connection
 			// PreparedStatement to write for SQL queries
-			PreparedStatement statement = con.prepareStatement("select * from employee where username=?");
+			PreparedStatement statement = con.prepareStatement("select password from employee where username=?");
 			statement.setString(1, username); // set the UserName
 			ResultSet result = statement.executeQuery(); // get the data from database
 			status = result.next();
 
-		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return status;
 	}
 
-	public static boolean validatePassword(String password,HttpServletRequest request){
+	public static boolean validatePassword(String password, HttpServletRequest request) {
 		boolean checkpassword = false;
 		try {
 			DatabaseConnection db = new DatabaseConnection(); // create DatabaseConnection class object
 			db.setCon();
 			Connection con = db.getCon(); // establishing the connection
-			PreparedStatement prestate = con.prepareStatement("select * from employee where password=?");
+			PreparedStatement prestate = con.prepareStatement("select empid from employee where password=?");
 			prestate.setString(1, password);
-			ResultSet set=prestate.executeQuery();
-			checkpassword=set.next();
-			request.setAttribute("firstname", set.getString("firstname")); // set Attribute for get FirstName
-			request.setAttribute("firstname", set.getString("firstname"));
-			request.setAttribute("lastname", set.getString("lastname"));
-			request.setAttribute("designation",set.getString("designation"));
-			request.setAttribute("email", set.getString("email"));
-			request.setAttribute("empid", set.getString("empid"));
-			
-			
+			ResultSet set = prestate.executeQuery();
+			checkpassword = set.next();
+			request.setAttribute("empID", set.getString("empid"));
 
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return checkpassword;
-}
+	}
 }
