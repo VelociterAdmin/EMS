@@ -59,14 +59,25 @@ public class WelcomeServlet extends HttpServlet {
 			PreparedStatement prestate = con.prepareStatement("select * from employee where empid=?");
 			prestate.setString(1, empId);
 			ResultSet set = prestate.executeQuery();
-			while (set.next()) {
-				request.setAttribute("firstname", set.getString("firstname")); // set Attribute for get FirstName
-				request.setAttribute("firstname", set.getString("firstname"));
-				request.setAttribute("lastname", set.getString("lastname"));
-				request.setAttribute("designation", set.getString("designation"));
-				request.setAttribute("email", set.getString("email"));
-				request.setAttribute("empid", set.getString("empid"));
-			}
+			set.next();
+			request.setAttribute("firstname", set.getString("firstname")); // set Attribute for get FirstName
+			request.setAttribute("lastname", set.getString("lastname"));
+			request.setAttribute("designation", set.getString("designation"));
+			request.setAttribute("email", set.getString("email"));
+			request.setAttribute("empid", set.getString("empid"));
+
+			PreparedStatement prestate2 = con.prepareStatement("select * from address where empid=?");
+			prestate2.setString(1, empId);
+			ResultSet set2 = prestate2.executeQuery();
+			set2.next();
+			request.setAttribute("houseno", set2.getString("houseno"));
+			request.setAttribute("streetname", set2.getString("streetname"));
+			request.setAttribute("locality", set2.getString("locality"));
+			request.setAttribute("city", set2.getString("city"));
+			request.setAttribute("state", set2.getString("state"));
+			request.setAttribute("pincode", set2.getString("pincode"));
+			request.setAttribute("country", set2.getString("country"));
+
 			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
 			rd.forward(request, response);
 
