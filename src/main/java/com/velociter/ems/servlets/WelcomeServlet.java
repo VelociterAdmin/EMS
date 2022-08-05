@@ -56,15 +56,16 @@ public class WelcomeServlet extends HttpServlet {
 			DatabaseConnection db = new DatabaseConnection(); // create DatabaseConnection class object
 			db.setCon();
 			Connection con = db.getCon(); // establishing the connection
+			// PreparedStatement to write for SQL queries
 			PreparedStatement prestate = con.prepareStatement("select * from employee where empid=?");
-			prestate.setString(1, empId);
-			ResultSet set = prestate.executeQuery();
+			prestate.setString(1, empId); // set string with indexing value
+			ResultSet set = prestate.executeQuery(); // get the data from database
 			set.next();
 			request.setAttribute("firstname", set.getString("firstname")); // set Attribute for get FirstName
-			request.setAttribute("lastname", set.getString("lastname"));
-			request.setAttribute("designation", set.getString("designation"));
-			request.setAttribute("email", set.getString("email"));
-			request.setAttribute("empid", set.getString("empid"));
+			request.setAttribute("lastname", set.getString("lastname")); // set Attribute for get lastName
+			request.setAttribute("designation", set.getString("designation"));// set Attribute for get designation
+			request.setAttribute("email", set.getString("email")); // set Attribute for get email
+			request.setAttribute("empid", set.getString("empid")); // set Attribute for get empid
 
 			PreparedStatement prestate2 = con.prepareStatement("select * from address where empid=?");
 			prestate2.setString(1, empId);
@@ -78,7 +79,7 @@ public class WelcomeServlet extends HttpServlet {
 			request.setAttribute("pincode", set2.getString("pincode"));
 			request.setAttribute("country", set2.getString("country"));
 
-			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp"); // request dispatch on welcome page
 			rd.forward(request, response);
 
 		} catch (Exception e) {

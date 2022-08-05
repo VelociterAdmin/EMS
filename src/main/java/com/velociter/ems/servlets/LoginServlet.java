@@ -53,12 +53,13 @@ public class LoginServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("WelcomeEmp");
 				rd.forward(request, response);
 			} else {
+				// if password is wrong then include on login page
 				writer.print("Password is incorrect");
 				RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 				rd.include(request, response);
 			}
 		} else {
-			// if username and password is wrong then include on login page
+			// if username is wrong then include on login page
 			writer.print("Username is incorrect");
 			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 			rd.include(request, response);
@@ -66,7 +67,7 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 
-	// validate() to check username and password
+	// validate() to check username 
 	public static boolean validateUsername(String username) {
 		boolean status = false;
 		try {
@@ -84,7 +85,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		return status;
 	}
-
+	// validate() to check password
 	public static boolean validatePassword(String password, HttpServletRequest request) {
 		boolean checkpassword = false;
 		try {
@@ -92,10 +93,10 @@ public class LoginServlet extends HttpServlet {
 			db.setCon();
 			Connection con = db.getCon(); // establishing the connection
 			PreparedStatement prestate = con.prepareStatement("select empid from employee where password=?");
-			prestate.setString(1, password);
-			ResultSet set = prestate.executeQuery();
-			checkpassword = set.next();
-			request.setAttribute("empID", set.getString("empid"));
+			prestate.setString(1, password); 	//set the username
+			ResultSet set = prestate.executeQuery(); 	//get the data from database
+			checkpassword = set.next();  			//storing the status of ResulSet
+			request.setAttribute("empID", set.getString("empid"));  	//set attribute of employeeID
 
 
 		} catch (Exception e) {

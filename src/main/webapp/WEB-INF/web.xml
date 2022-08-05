@@ -6,7 +6,7 @@
 	<display-name>EMS</display-name>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
-		</welcome-file-list>
+	</welcome-file-list>
 	<servlet>
 		<servlet-name>Register</servlet-name>
 		<servlet-class>com.velociter.ems.servlets.RegistrationServlet</servlet-class>
