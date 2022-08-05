@@ -30,7 +30,7 @@ input[type="text"], input[type="password"], input[type="number"], input[type="em
 }
 
 .welcomeLabel, .Firstname {
-	font-size: 100px;
+	font-size: 60px;
 	font-weight:bold;
 	margin: 10px;
 	padding: 10px;

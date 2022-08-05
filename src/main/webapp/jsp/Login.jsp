@@ -16,16 +16,16 @@
 
 			<tr>
 				<td>Username</td><br>
-				<td><input type="text" name="Username"></td>
+				<td><input type="text" name="Username" required></td>
 				<br>
 				<br>
 			</tr>
 			<tr>
 				<td>Password</td>
-				<td><input type="password" name="Password"></td>
+				<td><input type="password" name="Password" required></td>
 			</tr>
 			<tr>
-				<td colspan=2 align="center"><input type="submit" value="login">
+				<td colspan=2 align="center"><input type="submit" value="Login">
 					<input type="reset" value="Cancel"><br> <br> <a
 					href="Registration.jsp">Register now</a></td>
 			</tr>

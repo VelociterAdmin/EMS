@@ -10,7 +10,7 @@
 function verifyPassword(){
 	var password = document.getElementById("p1");
 	var confirmPassword = document.getElementById("p2");
-	if(var!=var2){
+	if(password!=confirmPassword){
 		alert("Password does not match");
 	}
 	
