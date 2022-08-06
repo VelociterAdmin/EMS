@@ -19,6 +19,10 @@
 		<servlet-name>WelcomeEmployee</servlet-name>
 		<servlet-class>com.velociter.ems.servlets.WelcomeServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.LogoutServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/jsp/RegistrationServlet</url-pattern>
@@ -29,6 +33,10 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>WelcomeEmployee</servlet-name>
-		<url-pattern>/jsp/WelcomeEmp</url-pattern>
+		<url-pattern>/jsp/WelcomeServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/jsp/LogoutServlet</url-pattern>
 	</servlet-mapping>
 </web-app>

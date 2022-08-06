@@ -97,7 +97,7 @@ public class RegistrationServlet extends HttpServlet {
 			ResultSet resultObj = prepObj.executeQuery(); // storing the status of query
 
 			PreparedStatement prepObj2 = con.prepareStatement(
-					"insert into address(addid,houseno,streetname,locality,city,state,country,pincode,empid) values(?,?,?,?,?,?,?,?)");
+					"insert into address(addid,houseno,streetname,locality,city,state,country,pincode,empid) values(?,?,?,?,?,?,?,?,?)");
 			prepObj2.setString(1, employee.getEmployeeId());
 			prepObj2.setString(2, employee.getAddress().getHouseNumber());
 			prepObj2.setString(3, employee.getAddress().getStreetName());
@@ -116,8 +116,8 @@ public class RegistrationServlet extends HttpServlet {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			RequestDispatcher rdObj = request.getRequestDispatcher("Registration.jsp");
-			rdObj.forward(request, response);
+//			RequestDispatcher rdObj = request.getRequestDispatcher("Registration.jsp");
+//			rdObj.forward(request, response);
 		}
 	}
 }
