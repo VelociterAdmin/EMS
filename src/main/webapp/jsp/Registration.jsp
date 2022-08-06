@@ -54,12 +54,12 @@ function verifyPassword(){
 				<td colspan="2" align=center>Address</td>
 			</tr>
 			<tr>
-				<td></td>
+				<td>
+				</td>
 				<td>
 
 					<table align="left">
 						<tr>
-
 							<td>House no</td>
 							<td><input type="text" name="houseNo." required></td>
 						</tr>
@@ -116,7 +116,7 @@ function verifyPassword(){
 
 			<tr>
 				<td colspan=2 align=center> <input type="submit"
-					name="submitButton" value="Submit">
+					name="submitButton" value="Register">
 					<input type="reset" name="resetButton" value="Reset">
 					<a href="Login.jsp">Login</a></td>
 			</tr>

@@ -14,6 +14,11 @@
 
 	<label class="Firstname"> <%=request.getAttribute("firstname")%>
 	</label>
+	<div align="right">
+	<form>
+	<input type="submit" value="Logout" >
+	</form>
+	</div>
 	<br />
 	<div class="tabContainer">
 		<div class="buttonContainer">
@@ -24,23 +29,23 @@
 		<div class="tabPanel">
 			<table>
 				<tr>
-					<td>FirstName</td>
+					<td>FirstName :</td>
 					<td><%=request.getAttribute("firstname")%></td>
 				</tr>
 				<tr>
-					<td>LastName</td>
+					<td>LastName:</td>
 					<td><%=request.getAttribute("lastname")%></td>
 				</tr>
 				<tr>
-					<td>Designation</td>
+					<td>Designation:</td>
 					<td><%=request.getAttribute("designation")%></td>
 				</tr>
 				<tr>
-					<td>EmailAddress</td>
+					<td>Email :</td>
 					<td><%=request.getAttribute("email")%></td>
 				</tr>
 				<tr>
-					<td>EmployeeId</td>
+					<td>EmployeeId :</td>
 					<td><%=request.getAttribute("empid")%></td>
 				</tr>
 			</table>
@@ -48,31 +53,31 @@
 		<div class="tabPanel">
 			<table id="Addresstab">
 				<tr>
-					<td>HouseNo.</td>
+					<td>HouseNo :</td>
 					<td><%=request.getAttribute("houseno")%></td>
 				</tr>
 				<tr>
-					<td>Street Name</td>
+					<td>Street Name :</td>
 					<td><%=request.getAttribute("streetname")%></td>
 				</tr>
 				<tr>
-					<td>Locality</td>
+					<td>Locality :</td>
 					<td><%=request.getAttribute("locality")%></td>
 				</tr>
 				<tr>
-					<td>City</td>
+					<td>City :</td>
 					<td><%=request.getAttribute("city")%></td>
 				</tr>
 				<tr>
-					<td>State</td>
+					<td>State :</td>
 					<td><%=request.getAttribute("state")%></td>
 				</tr>
 				<tr>
-					<td>Pincode</td>
+					<td>Pincode :</td>
 					<td><%=request.getAttribute("pincode")%></td>
 				</tr>
 				<tr>
-					<td>Country</td>
+					<td>Country :</td>
 					<td><%=request.getAttribute("country")%></td>
 				</tr>
 			</table>
@@ -82,19 +87,19 @@
 			<form action="#" method="post">
 				<table>
 					<tr>
-						<td>Secondry</td>
+						<td>Secondry :</td>
 						<td><input type="text" name="secondryEdu" required></td>
 					</tr>
 					<tr>
-						<td>Higher Secondry</td>
+						<td>Higher Secondry :</td>
 						<td><input type="text" name="highSecEdu" required></td>
 					</tr>
 					<tr>
-						<td>Graduation</td>
+						<td>Graduation :</td>
 						<td><input type="text" name="graduation" required></td>
 					</tr>
 					<tr>
-						<td>Post Graduation</td>
+						<td>Post Graduation :</td>
 						<td><input type="text" name="postGraduation" required></td>
 					</tr>
 					<tr>
@@ -109,25 +114,6 @@
 	<br>
 	<br>
 	<a href="http://localhost:8081/EMS">Home.</a>
+	<script type="text/javascript" src="../Panel.js"></script>
 </body>
 </html>
-<script>
-	var tabButtons = document
-			.querySelectorAll(".tabContainer .buttonContainer button");
-	var tabPanels = document.querySelectorAll(".tabContainer  .tabPanel");
-
-	function showPanel(panelIndex, colorCode) {
-		tabButtons.forEach(function(node) {
-			node.style.backgroundColor = "";
-			node.style.color = "";
-		});
-		tabButtons[panelIndex].style.backgroundColor = colorCode;
-		tabButtons[panelIndex].style.color = "white";
-		tabPanels.forEach(function(node) {
-			node.style.display = "none";
-		});
-		tabPanels[panelIndex].style.display = "block";
-		tabPanels[panelIndex].style.backgroundColor = colorCode;
-	}
-	//showPanel(0, 'gray');
-</script>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,10 +34,11 @@ public class RegistrationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)  //dopost is used to give and take request and response
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) // dopost is used to give and take
+																					// request and response
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");                 //set the content of the page as text and html
+		response.setContentType("text/html"); // set the content of the page as text and html
 		// PrintWriter writter = response.getWriter();
 		Employee employee = new Employee();
 		employee.setFirstName(request.getParameter("employeeName"));
@@ -75,15 +77,13 @@ public class RegistrationServlet extends HttpServlet {
 		 */
 
 		try {
-			DatabaseConnection dbcObj = new DatabaseConnection(); //creating object of DatabaseConnection
-			dbcObj.setCon();           //setting connection
-			Connection con = dbcObj.getCon();   //establishing the connection
-			PreparedStatement prepObj = con.prepareStatement(          //it gives permission to write sql query
-					"insert into employee(firstname,lastname,"
-					+ "empid,email,mobile_no,fathername,"
-					+ "mothername,designation,username"
-					+ ",password) values(?,?,?,?,?,?,?,?,?,?)");
-			prepObj.setString(1, employee.getFirstName());        //setting the values in sql query from employee class
+			DatabaseConnection dbcObj = new DatabaseConnection(); // creating object of DatabaseConnection
+			dbcObj.setCon(); // setting connection
+			Connection con = dbcObj.getCon(); // establishing the connection
+			PreparedStatement prepObj = con.prepareStatement( // it gives permission to write sql query
+					"insert into employee(firstname,lastname," + "empid,email,mobile_no,fathername,"
+							+ "mothername,designation,username" + ",password) values(?,?,?,?,?,?,?,?,?,?)");
+			prepObj.setString(1, employee.getFirstName()); // setting the values in sql query from employee class
 			prepObj.setString(2, employee.getLastName());
 			prepObj.setString(3, employee.getEmployeeId());
 			prepObj.setString(4, employee.getEmployeeEmailId());
@@ -94,18 +94,19 @@ public class RegistrationServlet extends HttpServlet {
 			prepObj.setString(9, employee.getUsername());
 			prepObj.setString(10, employee.getPassword());
 
-			ResultSet resultObj = prepObj.executeQuery();  //storing the status of query
+			ResultSet resultObj = prepObj.executeQuery(); // storing the status of query
 
 			PreparedStatement prepObj2 = con.prepareStatement(
-					"insert into address(houseno,streetname,locality,city,state,country,pincode,empid) values(?,?,?,?,?,?,?,?)");
-			prepObj2.setString(1, employee.getAddress().getHouseNumber());
-			prepObj2.setString(2, employee.getAddress().getStreetName());
-			prepObj2.setString(3, employee.getAddress().getLocalityName());
-			prepObj2.setString(4, employee.getAddress().getCity());
-			prepObj2.setString(5, employee.getAddress().getState());
-			prepObj2.setString(6, employee.getAddress().getCountry());
-			prepObj2.setInt(7, employee.getAddress().getPincode());
-			prepObj2.setString(8, employee.getEmployeeId());
+					"insert into address(addid,houseno,streetname,locality,city,state,country,pincode,empid) values(?,?,?,?,?,?,?,?)");
+			prepObj2.setString(1, employee.getEmployeeId());
+			prepObj2.setString(2, employee.getAddress().getHouseNumber());
+			prepObj2.setString(3, employee.getAddress().getStreetName());
+			prepObj2.setString(4, employee.getAddress().getLocalityName());
+			prepObj2.setString(5, employee.getAddress().getCity());
+			prepObj2.setString(6, employee.getAddress().getState());
+			prepObj2.setString(7, employee.getAddress().getCountry());
+			prepObj2.setInt(8, employee.getAddress().getPincode());
+			prepObj2.setString(9, employee.getEmployeeId());
 
 			ResultSet resultObj2 = prepObj2.executeQuery();
 			if (resultObj != null & resultObj2 != null) {
@@ -113,8 +114,10 @@ public class RegistrationServlet extends HttpServlet {
 				rdObj.forward(request, response);
 			}
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+			RequestDispatcher rdObj = request.getRequestDispatcher("Registration.jsp");
+			rdObj.forward(request, response);
 		}
 	}
 }

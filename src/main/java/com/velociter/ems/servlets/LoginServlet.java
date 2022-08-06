@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -46,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 		employee.setUsername(request.getParameter("Username")); // set the username into employee class
 		employee.setPassword(request.getParameter("Password")); // set the password into employee class
 
-		if (validateUsername(employee.getUsername())) { // passing the username and password to validate()
+		if (validateUsername(employee.getUsername(),request,response,writer)) { // passing the username and password to validate()
 			if (validatePassword(employee.getPassword(), request)) {
 				// if username and password is correct then dispatch to the welcome page
 				RequestDispatcher rd = request.getRequestDispatcher("WelcomeEmp");
@@ -67,7 +68,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	// validate() to check username
-	public static boolean validateUsername(String username) {
+	public static boolean validateUsername(String username,HttpServletRequest request,HttpServletResponse response,PrintWriter writer) throws ServletException, IOException {
 		boolean status = false;
 		try {
 			DatabaseConnection db = new DatabaseConnection(); // create DatabaseConnection class object
@@ -79,8 +80,11 @@ public class LoginServlet extends HttpServlet {
 			ResultSet result = statement.executeQuery(); // get the data from database
 			status = result.next();
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+			writer.print(e);
+			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+			rd.include(request, response);
 		}
 		return status;
 	}

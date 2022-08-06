@@ -5,19 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<link rel="stylesheet"href="../Style.css">
+<link rel="stylesheet" href="../Style.css">
 </head>
 <body>
-
-	<form  action="LoginServlet" method="Post">
+	<form action="LoginServlet" method="Post">
 		<table class="LoginTable">
-		
-
-
 			<tr>
 				<td>Username</td>
 				<td><input type="text" name="Username" required></td>
-				
 			</tr>
 			<tr>
 				<td>Password</td>
@@ -30,7 +25,7 @@
 			</tr>
 
 		</table>
-		
+
 	</form>
 
 </body>

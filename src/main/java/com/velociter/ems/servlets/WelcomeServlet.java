@@ -56,31 +56,33 @@ public class WelcomeServlet extends HttpServlet {
 			// PreparedStatement to write for SQL queries
 			PreparedStatement prestate = con.prepareStatement("select * from employee where empid=?");
 			prestate.setString(1, empId); // set string with indexing value
-			ResultSet set = prestate.executeQuery(); // get the data from database
-			set.next();
-			request.setAttribute("firstname", set.getString("firstname")); // set Attribute for get FirstName
-			request.setAttribute("lastname", set.getString("lastname")); // set Attribute for get lastName
-			request.setAttribute("designation", set.getString("designation"));// set Attribute for get designation
-			request.setAttribute("email", set.getString("email")); // set Attribute for get email
-			request.setAttribute("empid", set.getString("empid")); // set Attribute for get empid
+			ResultSet rs = prestate.executeQuery(); // get the data from database
+			rs.next();
+			request.setAttribute("firstname", rs.getString("firstname")); // set Attribute for get FirstName
+			request.setAttribute("lastname", rs.getString("lastname")); // set Attribute for get lastName
+			request.setAttribute("designation", rs.getString("designation"));// set Attribute for get designation
+			request.setAttribute("email", rs.getString("email")); // set Attribute for get email
+			request.setAttribute("empid", rs.getString("empid")); // set Attribute for get empid
 
 			PreparedStatement prestate2 = con.prepareStatement("select * from address where empid=?");
 			prestate2.setString(1, empId);
-			ResultSet set2 = prestate2.executeQuery();
-			set2.next();
-			request.setAttribute("houseno", set2.getString("houseno"));
-			request.setAttribute("streetname", set2.getString("streetname"));
-			request.setAttribute("locality", set2.getString("locality"));
-			request.setAttribute("city", set2.getString("city"));
-			request.setAttribute("state", set2.getString("state"));
-			request.setAttribute("pincode", set2.getString("pincode"));
-			request.setAttribute("country", set2.getString("country"));
+			ResultSet rs2 = prestate2.executeQuery();
+			rs.next();
+			request.setAttribute("houseno", rs2.getString("houseno"));
+			request.setAttribute("streetname", rs2.getString("streetname"));
+			request.setAttribute("locality", rs2.getString("locality"));
+			request.setAttribute("city", rs2.getString("city"));
+			request.setAttribute("state", rs2.getString("state"));
+			request.setAttribute("pincode", rs2.getString("pincode"));
+			request.setAttribute("country", rs.getString("country"));
 
 			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp"); // request dispatch on welcome page
 			rd.forward(request, response);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
+			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp"); // request dispatch on welcome page
+			rd.forward(request, response);
 		}
 	}
 
