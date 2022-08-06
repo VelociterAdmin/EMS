@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 																					// to validate()
 			if (validatePassword(employee.getPassword(), request)) {
 				// if username and password is correct then dispatch to the welcome page
-				RequestDispatcher rd = request.getRequestDispatcher("WelcomeEmp");
+				RequestDispatcher rd = request.getRequestDispatcher("WelcomeServlet");
 				rd.forward(request, response);
 			} else {
 				// if password is wrong then include on login page

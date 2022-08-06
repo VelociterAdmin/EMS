@@ -9,15 +9,13 @@
 
 </head>
 <body>
-
-	<label class="welcomeLabel">Welcome</label>
-
-	<label class="Firstname"> <%=request.getAttribute("firstname")%>
-	</label>
-	<div align="right">
-	<form>
-	<input type="submit" value="Logout" >
-	</form>
+	<div class="welcomeLabel" align="center">
+	Welcome <%=request.getAttribute("firstname")%>
+	</div>
+	<div align="right" style="margin-top:-35px">
+		<form>
+			<input type="submit" value="Logout">
+		</form>
 	</div>
 	<br />
 	<div class="tabContainer">
@@ -30,24 +28,30 @@
 			<table>
 				<tr>
 					<td>FirstName :</td>
-					<td><%=request.getAttribute("firstname")%></td>
+					<td><input type="text"
+						value="<%=request.getAttribute("firstname")%>" disabled></td>
 				</tr>
 				<tr>
-					<td>LastName:</td>
-					<td><%=request.getAttribute("lastname")%></td>
+					<td>LastName :</td>
+					<td><input type="text"
+						value="<%=request.getAttribute("lastname")%>" disabled></td>
 				</tr>
 				<tr>
-					<td>Designation:</td>
-					<td><%=request.getAttribute("designation")%></td>
+					<td>Designation :</td>
+					<td><input type="text"
+						value="<%=request.getAttribute("designation")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Email :</td>
-					<td><%=request.getAttribute("email")%></td>
+					<td><input type="email"
+						value="<%=request.getAttribute("email")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>EmployeeId :</td>
-					<td><%=request.getAttribute("empid")%></td>
+					<td><input type="text"
+						value="<%=request.getAttribute("empid")%>" disabled></td>
 				</tr>
+
 			</table>
 		</div>
 		<div class="tabPanel">
