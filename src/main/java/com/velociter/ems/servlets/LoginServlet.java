@@ -41,13 +41,12 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html"); // set the content of the pages
 		PrintWriter writer = response.getWriter(); // create PrintWriter object for writing on page
-
 		Employee employee = new Employee(); // create employee object
-
 		employee.setUsername(request.getParameter("Username")); // set the username into employee class
 		employee.setPassword(request.getParameter("Password")); // set the password into employee class
 
-		if (validateUsername(employee.getUsername(),request,response,writer)) { // passing the username and password to validate()
+		if (validateUsername(employee.getUsername(), request, response, writer)) { // passing the username and password
+																					// to validate()
 			if (validatePassword(employee.getPassword(), request)) {
 				// if username and password is correct then dispatch to the welcome page
 				RequestDispatcher rd = request.getRequestDispatcher("WelcomeEmp");
@@ -63,12 +62,12 @@ public class LoginServlet extends HttpServlet {
 			writer.print("Username is Incorrect");
 			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 			rd.include(request, response);
-
 		}
 	}
 
 	// validate() to check username
-	public static boolean validateUsername(String username,HttpServletRequest request,HttpServletResponse response,PrintWriter writer) throws ServletException, IOException {
+	public static boolean validateUsername(String username, HttpServletRequest request, HttpServletResponse response,
+			PrintWriter writer) throws ServletException, IOException {
 		boolean status = false;
 		try {
 			DatabaseConnection db = new DatabaseConnection(); // create DatabaseConnection class object

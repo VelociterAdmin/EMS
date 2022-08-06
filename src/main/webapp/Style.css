@@ -3,7 +3,7 @@ body
 {  
 
     color : white;
-    background-image: url('Resources/Background.png');
+    background-image: url('Resources/Background.jpg');
     background-repeat:no-repeat;
     background-attachment:fixed;  
     background-size: cover;  

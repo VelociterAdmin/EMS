@@ -67,14 +67,14 @@ public class WelcomeServlet extends HttpServlet {
 			PreparedStatement prestate2 = con.prepareStatement("select * from address where empid=?");
 			prestate2.setString(1, empId);
 			ResultSet rs2 = prestate2.executeQuery();
-			rs.next();
+			rs2.next();
 			request.setAttribute("houseno", rs2.getString("houseno"));
 			request.setAttribute("streetname", rs2.getString("streetname"));
 			request.setAttribute("locality", rs2.getString("locality"));
 			request.setAttribute("city", rs2.getString("city"));
 			request.setAttribute("state", rs2.getString("state"));
 			request.setAttribute("pincode", rs2.getString("pincode"));
-			request.setAttribute("country", rs.getString("country"));
+			request.setAttribute("country", rs2.getString("country"));
 
 			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp"); // request dispatch on welcome page
 			rd.forward(request, response);

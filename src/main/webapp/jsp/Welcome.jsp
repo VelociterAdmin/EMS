@@ -23,8 +23,8 @@
 	<div class="tabContainer">
 		<div class="buttonContainer">
 			<button onclick="showPanel(0,'gray')">Personal Information</button>
-			<button onclick="showPanel(1,'4caf50')">Address</button>
-			<button onclick="showPanel(2,'ff5736')">EducationQualification</button>
+			<button onclick="showPanel(1,'gray')">Address</button>
+			<button onclick="showPanel(2,'gray')">EducationQualification</button>
 		</div>
 		<div class="tabPanel">
 			<table>
