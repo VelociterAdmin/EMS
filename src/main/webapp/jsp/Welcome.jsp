@@ -10,10 +10,11 @@
 </head>
 <body>
 	<div class="welcomeLabel" align="center">
-	Welcome <%=request.getAttribute("firstname")%>
+		Welcome
+		<%=request.getAttribute("firstname")%>
 	</div>
-	<div align="right" style="margin-top:-35px">
-		<form>
+	<div align="right" style="margin-top: -35px">
+		<form action="LogoutServlet" method="post">
 			<input type="submit" value="Logout">
 		</form>
 	</div>
@@ -58,31 +59,38 @@
 			<table id="Addresstab">
 				<tr>
 					<td>HouseNo :</td>
-					<td><%=request.getAttribute("houseno")%></td>
+					<td><input type="text"
+						value="<%=request.getAttribute("houseno")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Street Name :</td>
-					<td><%=request.getAttribute("streetname")%></td>
+					<td><input type="text"
+						value="<%=request.getAttribute("streetname")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Locality :</td>
-					<td><%=request.getAttribute("locality")%></td>
+					<td><input type="text"
+						value="<%=request.getAttribute("locality")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>City :</td>
-					<td><%=request.getAttribute("city")%></td>
+					<td><input type="text"
+						value="<%=request.getAttribute("city")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>State :</td>
-					<td><%=request.getAttribute("state")%></td>
+					<td><input type="text"
+						value="<%=request.getAttribute("state")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Pincode :</td>
-					<td><%=request.getAttribute("pincode")%></td>
+					<td><input type="text"
+						value="<%=request.getAttribute("pincode")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Country :</td>
-					<td><%=request.getAttribute("country")%></td>
+					<td><input type="text"
+						value="<%=request.getAttribute("country")%>" disabled></td>
 				</tr>
 			</table>
 		</div>
