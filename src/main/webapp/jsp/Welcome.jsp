@@ -127,5 +127,6 @@
 	<br>
 	<a href="http://localhost:8081/EMS">Home.</a>
 	<script type="text/javascript" src="../Panel.js"></script>
+	
 </body>
 </html>

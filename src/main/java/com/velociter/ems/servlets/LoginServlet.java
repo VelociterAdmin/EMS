@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.velociter.ems.helper.DatabaseConnection;
 import com.velociter.ems.pojo.Employee;
@@ -44,13 +45,16 @@ public class LoginServlet extends HttpServlet {
 		Employee employee = new Employee(); // create employee object
 		employee.setUsername(request.getParameter("Username")); // set the username into employee class
 		employee.setPassword(request.getParameter("Password")); // set the password into employee class
-
+	
 		if (validateUsername(employee.getUsername(), request, response, writer)) { // passing the username and password
 																					// to validate()
 			if (validatePassword(employee.getPassword(), request)) {
 				// if username and password is correct then dispatch to the welcome page
 				RequestDispatcher rd = request.getRequestDispatcher("WelcomeServlet");
 				rd.forward(request, response);
+				HttpSession session=request.getSession();
+				session.setAttribute("uName",employee.getUsername());
+				
 			} else {
 				// if password is wrong then include on login page
 				writer.print("Password is Incorrect");
@@ -63,6 +67,8 @@ public class LoginServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 			rd.include(request, response);
 		}
+		
+		
 	}
 
 	// validate() to check username

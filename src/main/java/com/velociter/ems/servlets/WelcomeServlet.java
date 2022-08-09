@@ -2,6 +2,7 @@
 package com.velociter.ems.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.velociter.ems.helper.DatabaseConnection;
 
@@ -47,7 +49,10 @@ public class WelcomeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session=request.getSession(false);
 		response.setContentType("text/html");
+		PrintWriter pwObj=response.getWriter();
+		if(session!=null) {
 		String empId = (String) request.getAttribute("empID");
 		try {
 			DatabaseConnection db = new DatabaseConnection(); // create DatabaseConnection class object
@@ -83,6 +88,11 @@ public class WelcomeServlet extends HttpServlet {
 //			e.printStackTrace();
 			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp"); // request dispatch on welcome page
 			rd.forward(request, response);
+		}
+		}
+		else {
+			pwObj.print("Plese Login Frist");
+			request.getRequestDispatcher("Login.jsp").include(request,response);
 		}
 	}
 

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LogoutServlet
@@ -37,10 +38,18 @@ public class LogoutServlet extends HttpServlet {
 	 */
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		RequestDispatcher rdObj= request.getRequestDispatcher("Login.jsp");
-		rdObj.forward(request, response);
-		
+		HttpSession session=request.getSession();
+		session.removeAttribute("uName");
+		response.setHeader("Pragma","no-cache" );
+		response.setHeader("Cache-Control","no-store" );
+		response.setHeader("Expires","0" );
+		response.setDateHeader("Expires", -1);
+		session.invalidate();
+//		response.setContentType("text/html");
+//		RequestDispatcher rdObj= request.getRequestDispatcher("Login.jsp");
+//		rdObj.forward(request, response);
+		response.sendRedirect("Login.jsp");
+		System.out.println("Logout success");
 	}
 
 }
