@@ -1,5 +1,11 @@
+<%@page import="java.io.PrintWriter"%>
+<%@page import="com.velociter.ems.pojo.Employee"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<% String empid =(String) request.getAttribute("empid");  %>
+	
+	<% request.setAttribute("empid2", empid); %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +15,13 @@
 
 </head>
 <body>
-	<div class="welcomeLabel" align="center">
+	<br>
+	<div style="width:33.33%"><img src="../Resources/velociterlogo.png" /></div>
+	<div style="width:33.33%;margin-left:500px;margin-top:-40px" class="welcomeLabel" align="center">
 		Welcome
 		<%=request.getAttribute("firstname")%>
 	</div>
-	<div align="right" style="margin-top: -35px">
+	<div style="margin-left:1450px;margin-top:-20px" >
 		<form action="LogoutServlet" method="post">
 			<input type="submit" value="Logout">
 		</form>
@@ -30,7 +38,7 @@
 				<tr>
 					<td>FirstName :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("firstname")%>" disabled></td>
+						value="<%=request.getAttribute("firstname")%>" size="40px" disabled></td>
 				</tr>
 				<tr>
 					<td>LastName :</td>
@@ -60,7 +68,7 @@
 				<tr>
 					<td>HouseNo :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("houseno")%>" disabled></td>
+						value="<%=request.getAttribute("houseno")%>" size="40px" disabled></td>
 				</tr>
 				<tr>
 					<td>Street Name :</td>
@@ -96,11 +104,11 @@
 		</div>
 		<div class="tabPanel">
 			Education Section in progress
-			<form action="#" method="post">
+			<form action="EducationServlet" method="post">
 				<table>
 					<tr>
 						<td>Secondry :</td>
-						<td><input type="text" name="secondryEdu" required></td>
+						<td><input type="text" name="secondryEdu" size="40px" required></td>
 					</tr>
 					<tr>
 						<td>Higher Secondry :</td>
@@ -119,6 +127,9 @@
 							value="Save"></td>
 					</tr>
 				</table>
+				<%
+				request.setAttribute("empid", request.getAttribute("empid"));
+				%>
 			</form>
 		</div>
 	</div>
@@ -127,6 +138,6 @@
 	<br>
 	<a href="http://localhost:8081/EMS">Home.</a>
 	<script type="text/javascript" src="../Panel.js"></script>
-	
 </body>
 </html>
+

@@ -18,7 +18,8 @@ function verifyPassword(){
 </script>
 </head>
 <body>
-	<h1 align="left">Registration Page</h1>
+<br><img src="../Resources/velociterlogo.png"  />
+	<h1 align="center" style="margin-top:-20px">Registration Page</h1>
 
 	<form action="RegistrationServlet" method="Post">
 		<table class="ResgitrationTable">

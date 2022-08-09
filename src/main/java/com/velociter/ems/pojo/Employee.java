@@ -13,6 +13,15 @@ public class Employee {
 	private String password;
 
 	Address address = new Address();
+	Education education = new Education();
+
+	public Education getEducation() {
+		return education;
+	}
+
+	public void setEducation(Education education) {
+		this.education = education;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -101,6 +110,5 @@ public class Employee {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-
 
 }

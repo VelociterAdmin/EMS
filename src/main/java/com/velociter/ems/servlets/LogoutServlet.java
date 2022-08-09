@@ -49,7 +49,7 @@ public class LogoutServlet extends HttpServlet {
 //		RequestDispatcher rdObj= request.getRequestDispatcher("Login.jsp");
 //		rdObj.forward(request, response);
 		response.sendRedirect("Login.jsp");
-		System.out.println("Logout success");
+//		System.out.println("Logout success");
 	}
 
 }

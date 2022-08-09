@@ -17,10 +17,18 @@ a{
 
 .LoginTable{
   margin-top : 100px;
-  margin-left: 100px;
+  margin-left: auto;
+  margin-right:auto;
+  
+}
+
+.ResgitrationTable {
+	 margin-left: auto;
+     margin-right:auto;
 }
 .ResgitrationTable td{
 	padding: 3px;
+	
 
 }
 
@@ -29,12 +37,11 @@ input[type="text"], input[type="password"], input[type="number"], input[type="em
 	width: 90%;
 }
 
-.welcomeLabel, .Firstname {
+.welcomeLabel {
 	aling :centre;
 	font-size: 35px;
 	font-weight:bold;
-	margin: 10px;
-	padding: 10px;
+
 }
 .title{
     font-family: sans-serif;

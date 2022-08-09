@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="../Style.css">
 </head>
 <body>
+<br><img src="../Resources/velociterlogo.png"  />
 	<form action="LoginServlet" method="Post">
 		<table class="LoginTable">
 			<tr>
@@ -27,6 +28,6 @@
 		</table>
 
 	</form>
-	
+
 </body>
 </html>
