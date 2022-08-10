@@ -1,86 +1,86 @@
 @charset "UTF-8";
-body  
-{  
 
-    color : white;
-    background-image: url('Resources/Background.png');
-    background-repeat:no-repeat;
-    background-attachment:fixed;  
-    background-size: cover;  
-    font-family: 'Arial;
-   
-}  
-
-a{
-	color : white;
+body {
+	color: white;
+	background-image: url('Resources/Background.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: ' Arial;
 }
 
-.LoginTable{
-  margin-top : 100px;
-  margin-left: auto;
-  margin-right:auto;
-  
+a {
+	color: white;
+}
+
+.LoginTable {
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .ResgitrationTable {
-	 margin-left: auto;
-     margin-right:auto;
+	margin-left: auto;
+	margin-right: auto;
 }
-.ResgitrationTable td{
-	padding: 3px;
-	
 
+.ResgitrationTable td {
+	padding: 3px;
 }
 
 input[type="text"], input[type="password"], input[type="number"], input[type="email"]
 	{
 	width: 90%;
+	padding: 3px;
 }
 
 .welcomeLabel {
-	aling :centre;
+	aling: centre;
 	font-size: 35px;
-	font-weight:bold;
-
-}
-.title{
-    font-family: sans-serif;
-    color: #dc2d5e;
-    text-align: center;
-}
-.tabContainer{
-    width: 100%;
-    height: 350px;
-}
-.tabContainer .buttonContainer{
-    height: 15%;
-}
-.tabContainer .buttonContainer button{
-    width: 33.33%;
-    height: 100%;
-    float: left;
-    border: none;
-    outline:none;
-    cursor: pointer;
-    padding: 10px;
-    font-family: sans-serif;
-    font-size: 18px;
-    background-color: #ff8040;
+	font-weight: bold;
 }
 
-.tabContainer .buttonContainer button:hover{
-    background-color: #d7d4d4;
+.title {
+	font-family: sans-serif;
+	color: #dc2d5e;
+	text-align: center;
 }
 
-.tabContainer .tabPanel{
-	align-content:center;
-    height: 85%;
-    background-color: gray;
-    color: white;
-    text-align: left;
-    padding-top: 10px;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    font-size: 22px;
-    display: none;
+.tabContainer {
+	width: 100%;
+	height: 350px;
+}
+
+.tabContainer .buttonContainer {
+	height: 15%;
+}
+
+.tabContainer .buttonContainer button {
+	width: 33.33%;
+	height: 100%;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 10px;
+	font-family: sans-serif;
+	font-size: 18px;
+	background-color: #ff8040;
+}
+
+.tabContainer .buttonContainer button:hover {
+	background-color: #d7d4d4;
+}
+
+.tabContainer .tabPanel {
+	align-content: center;
+	height: 85%;
+	background-color: gray;
+	color: white;
+	text-align: left;
+	padding-top: 10px;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	font-size: 22px;
+	display: none;
 }

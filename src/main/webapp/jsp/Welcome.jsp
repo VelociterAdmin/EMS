@@ -109,7 +109,7 @@ if (session.getAttribute("empId") == null) {
 		</div>
 		<div class="tabPanel">
 			Education Section in progress
-			<form action="#" method="post">
+			<form action="EducationServlet" method="post">
 				<table>
 					<tr>
 						<td>Secondry :</td>
