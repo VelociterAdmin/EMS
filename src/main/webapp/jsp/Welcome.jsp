@@ -1,27 +1,33 @@
-<%@page import="java.io.PrintWriter"%>
-<%@page import="com.velociter.ems.pojo.Employee"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<% String empid =(String) request.getAttribute("empid");  %>
-	
-	<% request.setAttribute("empid2", empid); %>
-	
+
+<%
+	response.setHeader("Cache-Control", "no-cache");
+	if(session.getAttribute("empId")==null){
+		response.sendRedirect("Login.jsp");
+	}
+	else{
+		String first =(String) session.getAttribute("firstname");
+	%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="Stylesheet" href="../Style.css">
-<title>Welcome <%=request.getAttribute("firstname")%></title>
+<title>Welcome <%= first %></title>
 
 </head>
 <body>
 	<br>
-	<div style="width:33.33%"><img src="../Resources/velociterlogo.png" /></div>
-	<div style="width:33.33%;margin-left:500px;margin-top:-40px" class="welcomeLabel" align="center">
-		Welcome
-		<%=request.getAttribute("firstname")%>
+	<div style="width: 33.33%">
+		<img src="../Resources/velociterlogo.png" />
 	</div>
-	<div style="margin-left:1450px;margin-top:-20px" >
+	<div class="welcomeLabel" align="center">
+		Welcome
+
+		<%= session.getAttribute("firstname")%>
+	</div>
+	<div align="right" style="margin-top: -35px">
 		<form action="LogoutServlet" method="post">
 			<input type="submit" value="Logout">
 		</form>
@@ -31,36 +37,36 @@
 		<div class="buttonContainer">
 			<button onclick="showPanel(0,'gray')">Personal Information</button>
 			<button onclick="showPanel(1,'gray')">Address</button>
-			<button onclick="showPanel(2,'gray')">EducationQualification</button>
+			<button onclick="showPanel(2,'gray')">Education
+				Qualification</button>
 		</div>
 		<div class="tabPanel">
 			<table>
 				<tr>
 					<td>FirstName :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("firstname")%>" size="40px" disabled></td>
+						value="<%= session.getAttribute("firstname")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>LastName :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("lastname")%>" disabled></td>
+						value="<%=session.getAttribute("lastname")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Designation :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("designation")%>" disabled></td>
+						value="<%=session.getAttribute("designation")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Email :</td>
 					<td><input type="email"
-						value="<%=request.getAttribute("email")%>" disabled></td>
+						value="<%=session.getAttribute("email")%>" disabled></td>
 				</tr>
 				<tr>
-					<td>EmployeeId :</td>
+					<td>Employee Id :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("empid")%>" disabled></td>
+						value="<%=session.getAttribute("empId")%>" disabled></td>
 				</tr>
-
 			</table>
 		</div>
 		<div class="tabPanel">
@@ -68,47 +74,47 @@
 				<tr>
 					<td>HouseNo :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("houseno")%>" size="40px" disabled></td>
+						value="<%=session.getAttribute("houseno")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Street Name :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("streetname")%>" disabled></td>
+						value="<%=session.getAttribute("streetname")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Locality :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("locality")%>" disabled></td>
+						value="<%=session.getAttribute("locality")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>City :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("city")%>" disabled></td>
+						value="<%=session.getAttribute("city")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>State :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("state")%>" disabled></td>
+						value="<%=session.getAttribute("state")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Pincode :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("pincode")%>" disabled></td>
+						value="<%=session.getAttribute("pincode")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>Country :</td>
 					<td><input type="text"
-						value="<%=request.getAttribute("country")%>" disabled></td>
+						value="<%=session.getAttribute("country")%>" disabled></td>
 				</tr>
 			</table>
 		</div>
 		<div class="tabPanel">
 			Education Section in progress
-			<form action="EducationServlet" method="post">
+			<form action="#" method="post">
 				<table>
 					<tr>
 						<td>Secondry :</td>
-						<td><input type="text" name="secondryEdu" size="40px" required></td>
+						<td><input type="text" name="secondryEdu" required></td>
 					</tr>
 					<tr>
 						<td>Higher Secondry :</td>
@@ -127,9 +133,6 @@
 							value="Save"></td>
 					</tr>
 				</table>
-				<%
-				request.setAttribute("empid", request.getAttribute("empid"));
-				%>
 			</form>
 		</div>
 	</div>
@@ -140,4 +143,6 @@
 	<script type="text/javascript" src="../Panel.js"></script>
 </body>
 </html>
-
+<%
+p
+%>

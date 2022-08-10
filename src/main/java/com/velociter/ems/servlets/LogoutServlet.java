@@ -1,6 +1,7 @@
 package com.velociter.ems.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,43 +14,46 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LogoutServlet
  */
-@WebServlet("/LogoutServlet")
+//@WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LogoutServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-//	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-    
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session=request.getSession();
-		session.removeAttribute("uName");
-		response.setHeader("Pragma","no-cache" );
-		response.setHeader("Cache-Control","no-store" );
-		response.setHeader("Expires","0" );
-		response.setDateHeader("Expires", -1);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/html");
+		HttpSession session = request.getSession(false);
+//		if(session.getAttribute("empId") ==null) {
+//			response.sendRedirect("Login.jsp");
+//		}
+		PrintWriter p = response.getWriter();
+		p.print("logout");
+
+		p.print(session.getAttribute("empId"));
+		session.removeAttribute("empid");
+		session.removeAttribute("empId");
+
+		p.print(session.getAttribute("empId"));
+		session.removeAttribute("firstname");
+		session.removeAttribute("lastname");
+		session.removeAttribute("designation");
+		session.removeAttribute("email");
+		session.removeAttribute("empid");
+		session.removeAttribute("houseno");
+		session.removeAttribute("streetname");
+		session.removeAttribute("locality");
+		session.removeAttribute("city");
+		session.removeAttribute("state");
+		session.removeAttribute("pincode");
+		session.removeAttribute("country");
+		session.getMaxInactiveInterval();
 		session.invalidate();
-//		response.setContentType("text/html");
-//		RequestDispatcher rdObj= request.getRequestDispatcher("Login.jsp");
-//		rdObj.forward(request, response);
-		response.sendRedirect("Login.jsp");
-//		System.out.println("Logout success");
+		
+//		response.sendRedirect("Login.jsp");
 	}
 
 }

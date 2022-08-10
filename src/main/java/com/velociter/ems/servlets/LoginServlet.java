@@ -38,38 +38,6 @@ public class LoginServlet extends HttpServlet {
 	 *      response)
 	 */
 	// doPost method used for providing request and get response
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.setContentType("text/html"); // set the content of the pages
-		PrintWriter writer = response.getWriter(); // create PrintWriter object for writing on page
-		Employee employee = new Employee(); // create employee object
-		employee.setUsername(request.getParameter("Username")); // set the username into employee class
-		employee.setPassword(request.getParameter("Password")); // set the password into employee class
-	
-		if (validateUsername(employee.getUsername(), request, response, writer)) { // passing the username and password
-																					// to validate()
-			if (validatePassword(employee.getPassword(), request)) {
-				// if username and password is correct then dispatch to the welcome page
-				RequestDispatcher rd = request.getRequestDispatcher("WelcomeServlet");
-				rd.forward(request, response);
-				HttpSession session=request.getSession();
-				session.setAttribute("uName",employee.getUsername());
-				
-			} else {
-				// if password is wrong then include on login page
-				writer.print("Password is Incorrect");
-				RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
-				rd.include(request, response);
-			}
-		} else {
-			// if username is wrong then include on login page
-			writer.print("Username is Incorrect");
-			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
-			rd.include(request, response);
-		}
-		
-		
-	}
 
 	// validate() to check username
 	public static boolean validateUsername(String username, HttpServletRequest request, HttpServletResponse response,
@@ -88,8 +56,8 @@ public class LoginServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			writer.print(e);
-			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
-			rd.include(request, response);
+//			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+//			rd.include(request, response);
 		}
 		return status;
 	}
@@ -105,10 +73,49 @@ public class LoginServlet extends HttpServlet {
 			prestate.setString(1, password); // set the username
 			ResultSet set = prestate.executeQuery(); // get the data from database
 			checkpassword = set.next(); // storing the status of ResulSet
-			request.setAttribute("empID", set.getString("empid")); // set attribute of employeeID
+//			request.setAttribute("empID", set.getString("empid")); // set attribute of employeeID
+
+			if (checkpassword) {
+				HttpSession session = request.getSession();
+				String id = set.getString("empid");
+				session.setAttribute("empid", id);
+//				System.out.println("id = "+id);
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return checkpassword;
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/html"); // set the content of the pages
+		PrintWriter writer = response.getWriter(); // create PrintWriter object for writing on page
+		Employee employee = new Employee(); // create employee object
+		employee.setUsername(request.getParameter("Username")); // set the username into employee class
+		employee.setPassword(request.getParameter("Password")); // set the password into employee class
+
+		if (validateUsername(employee.getUsername(), request, response, writer)) { // passing the username and password
+																					// to validate()
+			if (validatePassword(employee.getPassword(), request)) {
+
+				// if username and password is correct then dispatch to the welcome page
+				RequestDispatcher rd = request.getRequestDispatcher("WelcomeServlet");
+				rd.forward(request, response);
+			} else {
+				// if password is wrong then include on login page
+				writer.print("Password is Incorrect");
+				RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+				rd.include(request, response);
+			}
+		} else {
+			// if username is wrong then include on login page
+			writer.print("Username is Incorrect");
+//			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+//			rd.include(request, response);
+		}
+	}
+
+
 }
