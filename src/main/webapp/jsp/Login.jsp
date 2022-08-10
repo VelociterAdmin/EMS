@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 		<% 
-	response.setHeader("Cache-Control", "no-cache");
+		response.setHeader("Cache-Control","no-cache");
 	String empId = (String) session.getAttribute("empid");
 	if(empId == null){
 		

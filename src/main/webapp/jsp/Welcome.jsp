@@ -2,19 +2,18 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	response.setHeader("Cache-Control", "no-cache");
-	if(session.getAttribute("empId")==null){
-		response.sendRedirect("Login.jsp");
-	}
-	else{
-		String first =(String) session.getAttribute("firstname");
-	%>
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+if (session.getAttribute("empId") == null) {
+	response.sendRedirect("Login.jsp");
+} else {
+	String first = (String) session.getAttribute("firstname");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="Stylesheet" href="../Style.css">
-<title>Welcome <%= first %></title>
+<title>Welcome <%=first%></title>
 
 </head>
 <body>
@@ -25,7 +24,7 @@
 	<div class="welcomeLabel" align="center">
 		Welcome
 
-		<%= session.getAttribute("firstname")%>
+		<%=session.getAttribute("firstname")%>
 	</div>
 	<div align="right" style="margin-top: -35px">
 		<form action="LogoutServlet" method="post">
@@ -45,7 +44,7 @@
 				<tr>
 					<td>FirstName :</td>
 					<td><input type="text"
-						value="<%= session.getAttribute("firstname")%>" disabled></td>
+						value="<%=session.getAttribute("firstname")%>" disabled></td>
 				</tr>
 				<tr>
 					<td>LastName :</td>
@@ -144,5 +143,5 @@
 </body>
 </html>
 <%
-p
+}
 %>

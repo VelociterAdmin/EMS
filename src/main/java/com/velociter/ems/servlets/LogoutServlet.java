@@ -31,13 +31,13 @@ public class LogoutServlet extends HttpServlet {
 //			response.sendRedirect("Login.jsp");
 //		}
 		PrintWriter p = response.getWriter();
-		p.print("logout");
+//		p.print("logout");
 
 		p.print(session.getAttribute("empId"));
 		session.removeAttribute("empid");
 		session.removeAttribute("empId");
 
-		p.print(session.getAttribute("empId"));
+//		p.print(session.getAttribute("empId"));
 		session.removeAttribute("firstname");
 		session.removeAttribute("lastname");
 		session.removeAttribute("designation");
@@ -53,7 +53,7 @@ public class LogoutServlet extends HttpServlet {
 		session.getMaxInactiveInterval();
 		session.invalidate();
 		
-//		response.sendRedirect("Login.jsp");
+		response.sendRedirect("Login.jsp");
 	}
 
 }
