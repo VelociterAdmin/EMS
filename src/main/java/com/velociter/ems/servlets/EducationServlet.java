@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.velociter.ems.helper.DatabaseConnection;
 import com.velociter.ems.pojo.Employee;
@@ -21,25 +22,18 @@ import com.velociter.ems.pojo.Employee;
 /**
  * Servlet implementation class EducationServlet
  */
-@WebServlet("/EducationServlet")
+//@WebServlet("/EducationServlet")
 public class EducationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EducationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		//ystem.out.println("eduS ="+request.getAttribute("empid2"));
-		WelcomeServlet wcObj=new WelcomeServlet();
+		HttpSession session = request.getSession();
+		//System.out.println("eduS ="+request.getAttribute("empid2"));
+		
 		DatabaseConnection db=new DatabaseConnection();
 		db.setCon();
 		Connection con=db.getCon();
@@ -48,7 +42,7 @@ public class EducationServlet extends HttpServlet {
 		employee.getEducation().setHigherSecondary(request.getParameter("highSecEdu"));
 		employee.getEducation().setGraduation(request.getParameter("graduation"));
 		employee.getEducation().setPostGraduation(request.getParameter("postGraduation"));
-		String empId=(String) request.getAttribute("empid2"); 
+		String empId=(String) session.getAttribute("empId"); 
 		
 		try {
 			PreparedStatement state=con.prepareStatement("insert into education (eduid,secondary,highersecondary,graduation,postgraduation,empid)values(?,?,?,?,?,?)");
@@ -57,7 +51,7 @@ public class EducationServlet extends HttpServlet {
 			state.setString(3, employee.getEducation().getHigherSecondary());
 			state.setString(4, employee.getEducation().getGraduation());
 			state.setString(5, employee.getEducation().getPostGraduation());
-			state.setString(6,(String) request.getAttribute("empid2"));
+			state.setString(6,(String) empId);
 			
 			
 			ResultSet rs=state.executeQuery();
