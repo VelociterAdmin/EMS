@@ -1,25 +1,32 @@
+<%@page import="com.velociter.ems.helper.Operation"%>
+<%@page import="java.util.ArrayList"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+Operation op = new Operation();
+ArrayList<String> list = op.getCountries();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="Stylesheet" href="../Style.css">
 <meta charset="UTF-8">
 <title>Registration</title>
-<script type="text/javascript">
-function verifyPassword(){
-	var password = document.getElementById("p1");
-	var confirmPassword = document.getElementById("p2");
-	if(password!=confirmPassword){
-		alert("Password does not match");
-	}
-	
+<style type="text/css">
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-</script>
+input[type=number] {
+  -moz-appearance: textfield;
+}
+</style>
 </head>
 <body>
-<br><img src="../Resources/velociterlogo.png"  />
-	<h1 align="center" style="margin-top:-20px">Registration Page</h1>
+	<br>
+	<img src="../Resources/velociterlogo.png" />
 
 	<form action="RegistrationServlet" method="Post">
 		<table class="ResgitrationTable">
@@ -55,10 +62,8 @@ function verifyPassword(){
 				<td colspan="2" align=center>Address</td>
 			</tr>
 			<tr>
+				<td></td>
 				<td>
-				</td>
-				<td>
-
 					<table align="left">
 						<tr>
 							<td>House no</td>
@@ -82,16 +87,19 @@ function verifyPassword(){
 						</tr>
 						<tr>
 							<td>Pin Code</td>
-							<td><input type="number" name="pincode" required></td>
+							<td><input type="number" name="pincode"  required></td>
 						</tr>
 						<tr>
 							<td>Country</td>
-							<td><input type="text" name="country" required></td>
+							<td><select name="country" required>
+							<option value="">Select Country</option>
+									<% for(String showCountry:list){ %>
+
+									<option value="<%= showCountry %>"><%= showCountry %></option>
+										<% } %>
+							</select></td>
 						</tr>
-
-
 					</table>
-
 				</td>
 			</tr>
 			<tr>
@@ -101,8 +109,6 @@ function verifyPassword(){
 			<tr>
 				<td>Username</td>
 				<td><input type="text" name="username" required></td>
-
-
 			</tr>
 			<tr>
 				<td>Password</td>
@@ -113,16 +119,11 @@ function verifyPassword(){
 				<td><input type="password" name="confirmPassword" id="p2"
 					required></td>
 			</tr>
-
-
 			<tr>
-				<td colspan=2 align=center> <input type="submit"
-					name="submitButton" value="Register">
-					<input type="reset" name="resetButton" value="Reset">
-					<a href="Login.jsp">Login</a></td>
+				<td colspan=2 align=center><input type="submit"
+					name="submitButton" value="Register"> <input type="reset"
+					name="resetButton" value="Reset"> <a href="Login.jsp">Login</a></td>
 			</tr>
-
-
 		</table>
 	</form>
 </body>
