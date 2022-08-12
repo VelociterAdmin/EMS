@@ -31,31 +31,31 @@ input[type=number] {
 	<form action="RegistrationServlet" method="Post">
 		<table class="ResgitrationTable">
 			<tr>
-				<td>First Name</td>
+				<td>First Name :</td>
 				<td><input type="text" name="employeeName" required></td>
 			</tr>
 			<tr>
-				<td>Last Name</td>
+				<td>Last Name :</td>
 				<td><input type="text" name="employeeLastName" required></td>
 			</tr>
 			<tr>
-				<td>Employee ID</td>
+				<td>Employee ID :</td>
 				<td><input type="text" name="employeeId" required></td>
 			</tr>
 			<tr>
-				<td>Email Address</td>
-				<td><input type="email" name="employeeEmailId" required></td>
+				<td>Email :</td>
+				<td><input type="email" name="employeeEmailId" onkeyup="this.value = this.value.toLowerCase();" required></td>
 			</tr>
 			<tr>
-				<td>Mobile Number</td>
+				<td>Mobile Number :</td>
 				<td><input type="text" name="mobileNumber" required></td>
 			</tr>
 			<tr>
-				<td>Father's Name</td>
+				<td>Father's Name :</td>
 				<td><input type="text" name="employeeFather'sName" required></td>
 			</tr>
 			<tr>
-				<td>Mother's Name</td>
+				<td>Mother's Name :</td>
 				<td><input type="text" name="employeeMother'sName" required></td>
 			</tr>
 			<tr>
@@ -64,33 +64,33 @@ input[type=number] {
 			<tr>
 				<td></td>
 				<td>
-					<table align="left">
+					<table>
 						<tr>
-							<td>House no</td>
+							<td>House no :</td>
 							<td><input type="text" name="houseNo." required></td>
 						</tr>
 						<tr>
-							<td>Street Name</td>
+							<td>Street Name :</td>
 							<td><input type="text" name="streetName" required></td>
 						</tr>
 						<tr>
-							<td>Locality</td>
+							<td>Locality :</td>
 							<td><input type="text" name="locality" required></td>
 						</tr>
 						<tr>
-							<td>City</td>
+							<td>City :</td>
 							<td><input type="text" name="city" required></td>
 						</tr>
 						<tr>
-							<td>State</td>
+							<td>State :</td>
 							<td><input type="text" name="state" required></td>
 						</tr>
 						<tr>
-							<td>Pin Code</td>
+							<td>Pin Code :</td>
 							<td><input type="number" name="pincode"  required></td>
 						</tr>
 						<tr>
-							<td>Country</td>
+							<td>Country :</td>
 							<td><select name="country" required>
 							<option value="">Select Country</option>
 									<% for(String showCountry:list){ %>
@@ -103,19 +103,19 @@ input[type=number] {
 				</td>
 			</tr>
 			<tr>
-				<td>Designation</td>
+				<td>Designation :</td>
 				<td><input type="text" name="designation" required></td>
 			</tr>
 			<tr>
-				<td>Username</td>
-				<td><input type="text" name="username" required></td>
+				<td>Username :</td>
+				<td><input type="text" name="username" onkeyup="this.value = this.value.toLowerCase();" required></td>
 			</tr>
 			<tr>
-				<td>Password</td>
+				<td>Password :</td>
 				<td><input type="password" name="password" id="p1" required></td>
 			</tr>
 			<tr>
-				<td>Confirm Password</td>
+				<td>Confirm Password :</td>
 				<td><input type="password" name="confirmPassword" id="p2"
 					required></td>
 			</tr>

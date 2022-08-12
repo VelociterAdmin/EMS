@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	// validate() to check password
-	public static boolean validatePassword(String password, HttpServletRequest request) {
+	public static boolean validatePassword(String password,String username, HttpServletRequest request) {
 		boolean checkpassword = false;
 		try {
 			DatabaseConnection db = new DatabaseConnection(); // create DatabaseConnection class object
@@ -98,7 +98,7 @@ public class LoginServlet extends HttpServlet {
 
 		if (validateUsername(employee.getUsername(), request, response, writer)) { // passing the username and password
 																					// to validate()
-			if (validatePassword(employee.getPassword(), request)) {
+			if (validatePassword(employee.getPassword(),employee.getUsername(), request)) {
 
 				// if username and password is correct then dispatch to the welcome page
 				RequestDispatcher rd = request.getRequestDispatcher("WelcomeServlet");
