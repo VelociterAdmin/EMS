@@ -47,9 +47,9 @@ public class RegistrationServlet extends HttpServlet {
 		employee.setEmployeeId(request.getParameter("employeeId"));
 		employee.setEmployeeEmailId(request.getParameter("employeeEmailId"));
 		employee.setMobileNumber(request.getParameter("mobileNumber"));
-		employee.setEmployeeFatherName(request.getParameter("employeeFather'sName"));
-		employee.setEmployeeMotherName(request.getParameter("employeeMother'sName"));
-		employee.getAddress().setHouseNumber(request.getParameter("houseNo."));
+		employee.setEmployeeFatherName(request.getParameter("employeeFatherName"));
+		employee.setEmployeeMotherName(request.getParameter("employeeMotherName"));
+		employee.getAddress().setHouseNumber(request.getParameter("houseNo"));
 		employee.getAddress().setStreetName(request.getParameter("streetName"));
 		employee.getAddress().setLocalityName(request.getParameter("locality"));
 		employee.getAddress().setCity(request.getParameter("city"));

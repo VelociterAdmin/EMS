@@ -14,13 +14,13 @@ ArrayList<String> list = op.getCountries();
 <meta charset="UTF-8">
 <title>Registration</title>
 <style type="text/css">
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
+
 input[type=number] {
-  -moz-appearance: textfield;
+	-moz-appearance: textfield;
 }
 </style>
 </head>
@@ -44,7 +44,8 @@ input[type=number] {
 			</tr>
 			<tr>
 				<td>Email :</td>
-				<td><input type="email" name="employeeEmailId" onkeyup="this.value = this.value.toLowerCase();" required></td>
+				<td><input type="email" name="employeeEmailId"
+					style="text-transform: lowercase;" required></td>
 			</tr>
 			<tr>
 				<td>Mobile Number :</td>
@@ -52,11 +53,11 @@ input[type=number] {
 			</tr>
 			<tr>
 				<td>Father's Name :</td>
-				<td><input type="text" name="employeeFather'sName" required></td>
+				<td><input type="text" name="employeeFatherName" required></td>
 			</tr>
 			<tr>
 				<td>Mother's Name :</td>
-				<td><input type="text" name="employeeMother'sName" required></td>
+				<td><input type="text" name="employeeMotherName" required></td>
 			</tr>
 			<tr>
 				<td colspan="2" align=center>Address</td>
@@ -66,8 +67,8 @@ input[type=number] {
 				<td>
 					<table>
 						<tr>
-							<td>House no :</td>
-							<td><input type="text" name="houseNo." required></td>
+							<td>House Number :</td>
+							<td><input type="text" name="houseNo" required></td>
 						</tr>
 						<tr>
 							<td>Street Name :</td>
@@ -87,16 +88,19 @@ input[type=number] {
 						</tr>
 						<tr>
 							<td>Pin Code :</td>
-							<td><input type="number" name="pincode"  required></td>
+							<td><input type="number" name="pincode" required></td>
 						</tr>
 						<tr>
 							<td>Country :</td>
 							<td><select name="country" required>
-							<option value="">Select Country</option>
-									<% for(String showCountry:list){ %>
-
-									<option value="<%= showCountry %>"><%= showCountry %></option>
-										<% } %>
+									<option value="">Select Country</option>
+									<%
+									for (String showCountry : list) {
+									%>
+									<option value="<%=showCountry%>"><%=showCountry%></option>
+									<%
+									}
+									%>
 							</select></td>
 						</tr>
 					</table>
@@ -108,7 +112,8 @@ input[type=number] {
 			</tr>
 			<tr>
 				<td>Username :</td>
-				<td><input type="text" name="username" onkeyup="this.value = this.value.toLowerCase();" required></td>
+				<td><input type="text" name="username"
+					style="text-transform: lowercase;" required></td>
 			</tr>
 			<tr>
 				<td>Password :</td>
