@@ -122,10 +122,9 @@ public class RegistrationServlet extends HttpServlet {
 
 				ResultSet resultObj2 = prepObj2.executeQuery();
 				if (resultObj != null & resultObj2 != null) {
-//					writter.print("<	script>alert('Employee Registered Successfull...')</script>");
-					writter.print("Registered Successfull "+employee.getUsername());
-					RequestDispatcher rdObj = request.getRequestDispatcher("Login.jsp");
-					rdObj.forward(request, response);
+					writter.print("<script>alert('Employee Registered Successfull...')</script>");
+//					RequestDispatcher rdObj = request.getRequestDispatcher("Login.jsp");
+//					rdObj.forward(request, response);
 				}
 			}
 

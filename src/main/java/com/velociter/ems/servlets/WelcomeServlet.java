@@ -74,6 +74,18 @@ public class WelcomeServlet extends HttpServlet {
 				session.setAttribute("pincode", rs2.getString("pincode"));
 				session.setAttribute("country", rs2.getString("country"));
 
+				PreparedStatement edudetail=con.prepareStatement("select * from education where empid=?");
+				edudetail.setString(1,empid);
+				ResultSet rs3=edudetail.executeQuery();
+				while(rs3.next()) {
+					session.setAttribute("empEduId", rs3.getString("eduid"));
+					session.setAttribute("fieldName", rs3.getString("FieldName"));
+					session.setAttribute("nameOfSchool", rs3.getString("School"));
+					session.setAttribute("nameOfBoard", rs3.getString("University"));
+					session.setAttribute("grades", rs3.getString("Grades"));
+					
+				}
+				
 //				RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp"); // request dispatch on welcome page
 //				rd.forward(request, response);
 				response.sendRedirect("Welcome.jsp");

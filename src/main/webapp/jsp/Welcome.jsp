@@ -1,8 +1,12 @@
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
 response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+PrintWriter print = response.getWriter();
+String eduid = (String) session.getAttribute("empEduId");
+
 if (session.getAttribute("empId") == null) {
 	response.sendRedirect("Login.jsp");
 } else {
@@ -109,8 +113,33 @@ if (session.getAttribute("empId") == null) {
 			</table>
 		</div>
 		<div class="tabPanel">
-			Education Section in progress
-			<form action="EducationServlet" method="post"></form>
+			<button onClick="AddField()">Add Field</button>
+			<form action="EducationServlet" method="post">
+
+
+				<table width="60%" id="EducationTable">
+					<tr padding="5px">
+						<td>Field Name</td>
+						<td>Name of School</td>
+						<td>Name of Board/University</td>
+						<td>Grades</td>
+					</tr>
+					<%
+					if (eduid != null) {
+					%>
+					<tr>
+						<td><%=session.getAttribute("fieldName")%></td>
+						<td><%=session.getAttribute("nameOfSchool")%></td>
+						<td><%=session.getAttribute("nameOfBoard")%></td>
+						<td><%=session.getAttribute("grades")%></td>
+					</tr>
+					<%
+					}
+					%>
+
+				</table>
+			</form>
+
 		</div>
 	</div>
 	<script type="text/javascript" src="../Panel.js"></script>
