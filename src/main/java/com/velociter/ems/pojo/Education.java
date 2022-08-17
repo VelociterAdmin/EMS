@@ -1,36 +1,39 @@
 package com.velociter.ems.pojo;
 
 public class Education {
-	private String secondary;
-	private String higherSecondary;
-	private String graduation;
-	private String postGraduation;
-	public String getSecondary() {
-		return secondary;
+	private String fieldName;
+	private String nameOfSchool;
+	private String nameOfUniversity;
+	private String grades;
+	public String getFieldName() {
+		return fieldName;
 	}
-	public void setSecondary(String secondary) {
-		this.secondary = secondary;
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
 	}
-	public String getHigherSecondary() {
-		return higherSecondary;
+	public String getNameOfSchool() {
+		return nameOfSchool;
 	}
-	public void setHigherSecondary(String higherSecondary) {
-		this.higherSecondary = higherSecondary;
+	public void setNameOfSchool(String nameOfSchool) {
+		this.nameOfSchool = nameOfSchool;
 	}
-	public String getGraduation() {
-		return graduation;
+	public String getNameOfUniversity() {
+		return nameOfUniversity;
 	}
-	public void setGraduation(String graduation) {
-		this.graduation = graduation;
+	public void setNameOfUniversity(String nameOfUniversity) {
+		this.nameOfUniversity = nameOfUniversity;
 	}
-	public String getPostGraduation() {
-		return postGraduation;
+	public String getGrades() {
+		return grades;
 	}
-	public void setPostGraduation(String postGraduation) {
-		this.postGraduation = postGraduation;
+	public void setGrades(String grades) {
+		this.grades = grades;
+	}
+	
+	
+	
 	}
 	
 	
 	
 
-}

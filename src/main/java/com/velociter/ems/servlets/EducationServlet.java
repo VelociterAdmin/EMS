@@ -1,7 +1,7 @@
 package com.velociter.ems.servlets;
 
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,47 +25,61 @@ import com.velociter.ems.pojo.Employee;
 //@WebServlet("/EducationServlet")
 public class EducationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		HttpSession session = request.getSession();
-		//System.out.println("eduS ="+request.getAttribute("empid2"));
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/html"); // set the content type
 		
-		DatabaseConnection db=new DatabaseConnection();
-		db.setCon();
-		Connection con=db.getCon();
-		Employee employee=new Employee();
-		employee.getEducation().setSecondary(request.getParameter("secondryEdu"));
-		employee.getEducation().setHigherSecondary(request.getParameter("highSecEdu"));
-		employee.getEducation().setGraduation(request.getParameter("graduation"));
-		employee.getEducation().setPostGraduation(request.getParameter("postGraduation"));
-		String empId=(String) session.getAttribute("empId"); 
-		
+		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession(); // create session
+
+		DatabaseConnection db = new DatabaseConnection(); // create databaseConnection object
+		db.setCon(); // set connection
+		Connection con = db.getCon(); // establishing the connection
+
+		Employee employee = new Employee(); // Create object of employee class
+		employee.getEducation().setFieldName(request.getParameter("FieldName")); // setting the values in education
+																					// class
+		employee.getEducation().setNameOfSchool(request.getParameter("NameofSchool"));
+		employee.getEducation().setNameOfUniversity(request.getParameter("NameofUniversity"));
+		employee.getEducation().setGrades(request.getParameter("Grade"));
+
+		String empId = (String) session.getAttribute("empId");
+
 		try {
-			PreparedStatement state=con.prepareStatement("insert into education (eduid,secondary,highersecondary,graduation,postgraduation,empid)values(?,?,?,?,?,?)");
-			state.setString(1,(String) request.getAttribute("empid2"));
-			state.setString(2, employee.getEducation().getSecondary());
-			state.setString(3, employee.getEducation().getHigherSecondary());
-			state.setString(4, employee.getEducation().getGraduation());
-			state.setString(5, employee.getEducation().getPostGraduation());
-			state.setString(6,(String) empId);
-			
-			
-			ResultSet rs=state.executeQuery();
-			
-			if (rs!= null) {
-				RequestDispatcher rdObj = request.getRequestDispatcher("Welcome.jsp");
-				rdObj.forward(request, response);
+			// PreparedStatement to write for SQL queries
+			PreparedStatement state = con.prepareStatement(
+					"insert into education (eduid,fieldname,school,university,grades,empid)values(?,?,?,?,?,?)");
+			state.setString(1, empId);
+			state.setString(2, employee.getEducation().getFieldName());
+			state.setString(3, employee.getEducation().getNameOfSchool());
+			state.setString(4, employee.getEducation().getNameOfUniversity());
+			state.setString(5, employee.getEducation().getGrades());
+			state.setString(6, (String) empId);
+
+			ResultSet rs = state.executeQuery();
+			// if data is inserted then dispatch to welcome page
+			if (rs != null) {
+				
+				System.out.print("Inserted Education");
+				RequestDispatcher rd = request.getRequestDispatcher("WelcomeServlet");
+				rd.forward(request, response);
 			}
-			
+			else {
+				System.out.print("Inserted Failed");
+			}
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+//			RequestDispatcher rdObj = request.getRequestDispatcher("Welcome.jsp");
+//			rdObj.forward(request, response);
+
 		}
-		
+
 	}
 
 }
