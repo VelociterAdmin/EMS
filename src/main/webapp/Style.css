@@ -28,9 +28,9 @@ a {
 	padding: 3px;
 }
 
-input[type="text"], input[type="password"], input[type="number"], input[type="email"]
+input[type="text"], input[type="password"], input[type="number"], input[type="email"], select
 	{
-	width: 100%;
+	width: 95%;
 	padding: 3px;
 }
 
