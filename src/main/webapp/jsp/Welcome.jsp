@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -124,19 +125,31 @@ if (session.getAttribute("empId") == null) {
 						<td>Name of Board/University</td>
 						<td>Grades</td>
 					</tr>
+
 					<%
-					if (eduid != null) {
+					ArrayList<String> fieldList = (ArrayList<String>) session.getAttribute("fields");
+					ArrayList<String> SchoolList = (ArrayList<String>) session.getAttribute("school");
+					ArrayList<String> boardList = (ArrayList<String>) session.getAttribute("university");
+					ArrayList<String> gradeList = (ArrayList<String>) session.getAttribute("grade");
+					if (fieldList != null) {
+					%>
+
+					<%
+					for (int i = 0; i < fieldList.size(); i++) {
 					%>
 					<tr>
-						<td><%=session.getAttribute("fieldName")%></td>
-						<td><%=session.getAttribute("nameOfSchool")%></td>
-						<td><%=session.getAttribute("nameOfBoard")%></td>
-						<td><%=session.getAttribute("grades")%></td>
+						<td><%=fieldList.get(i)%></td>
+						<td><%=SchoolList.get(i)%></td>
+						<td><%=boardList.get(i)%></td>
+						<td><%=gradeList.get(i)%></td>
 					</tr>
 					<%
 					}
 					%>
 
+					<%
+					}
+					%>
 				</table>
 			</form>
 

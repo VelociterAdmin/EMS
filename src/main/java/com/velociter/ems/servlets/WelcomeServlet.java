@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -73,19 +75,29 @@ public class WelcomeServlet extends HttpServlet {
 				session.setAttribute("state", rs2.getString("state"));
 				session.setAttribute("pincode", rs2.getString("pincode"));
 				session.setAttribute("country", rs2.getString("country"));
-
+				System.out.println("welcomeServlet empid = "+empid);
 				PreparedStatement edudetail=con.prepareStatement("select * from education where empid=?");
 				edudetail.setString(1,empid);
 				ResultSet rs3=edudetail.executeQuery();
+				ArrayList<String> fields = new ArrayList<String>();
+				ArrayList<String> school = new ArrayList<String>();
+				ArrayList<String> board = new ArrayList<String>();
+				ArrayList<String> grade = new ArrayList<String>();
+				
 				while(rs3.next()) {
-					session.setAttribute("empEduId", rs3.getString("eduid"));
-					session.setAttribute("fieldName", rs3.getString("FieldName"));
-					session.setAttribute("nameOfSchool", rs3.getString("School"));
-					session.setAttribute("nameOfBoard", rs3.getString("University"));
-					session.setAttribute("grades", rs3.getString("Grades"));
+								
+					fields.add(rs3.getString("FieldName"));
+					school.add(rs3.getString("School"));
+					board.add(rs3.getString("University"));
+					grade.add(rs3.getString("Grades"));
+					
+					session.setAttribute("fields", fields);
+					session.setAttribute("school", school);
+					session.setAttribute("university", board);
+					session.setAttribute("grade", grade);
+					
 					
 				}
-				
 //				RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp"); // request dispatch on welcome page
 //				rd.forward(request, response);
 				response.sendRedirect("Welcome.jsp");
