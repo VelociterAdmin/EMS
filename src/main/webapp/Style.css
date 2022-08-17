@@ -34,6 +34,7 @@ input[type="text"], input[type="password"], input[type="number"], input[type="em
 	padding: 3px;
 }
 
+
 .errorMsg{
 	color:red;
 
@@ -79,7 +80,7 @@ input[type="text"], input[type="password"], input[type="number"], input[type="em
 
 .tabContainer .tabPanel {
 	align-content: center;
-	height: 85%;
+	height: 100%;
 	background-color: gray;
 	color: white;
 	text-align: left;

@@ -36,15 +36,12 @@ public class WelcomeServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 //		String empId = (String) request.getAttribute("empID");
-		
+
 		String empid = (String) session.getAttribute("empid");
-		System.out.println("WelcomeServlet"+empid);
 		if (session.getAttribute("empid") == null) {
-		response.sendRedirect("Login.jsp");	
-		}else {
-			System.out.println("WelcomeServlet if "+empid);
-			System.out.println(session.getAttribute("empid"));
-			
+			response.sendRedirect("Login.jsp");
+		} else {
+
 			try {
 				DatabaseConnection db = new DatabaseConnection(); // create DatabaseConnection class object
 				db.setCon();
@@ -54,9 +51,9 @@ public class WelcomeServlet extends HttpServlet {
 				prestate.setString(1, empid); // set string with indexing value
 				ResultSet rs = prestate.executeQuery(); // get the data from database
 				rs.next();
-				String firstname =  rs.getString("firstname");
+				String firstname = rs.getString("firstname");
 				String lastname = rs.getString("lastname");
-				String designation =  rs.getString("designation");
+				String designation = rs.getString("designation");
 				String email = rs.getString("email");
 				String empId = rs.getString("empid");
 				session.setAttribute("firstname", firstname); // set Attribute for get FirstName
@@ -64,7 +61,7 @@ public class WelcomeServlet extends HttpServlet {
 				session.setAttribute("designation", designation);// set Attribute for get designation
 				session.setAttribute("email", email); // set Attribute for get email
 				session.setAttribute("empId", empId); // set Attribute for get empid
-				System.out.println(firstname +" "+ lastname);
+
 				PreparedStatement prestate2 = con.prepareStatement("select * from address where empid=?");
 				prestate2.setString(1, empid);
 				ResultSet rs2 = prestate2.executeQuery();
@@ -82,13 +79,13 @@ public class WelcomeServlet extends HttpServlet {
 				response.sendRedirect("Welcome.jsp");
 			} catch (SQLException e) {
 				e.printStackTrace();
-				out.print("<html><body>"+e+"</body></html>");
+				out.print("<html><body>" + e + "</body></html>");
 //				RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp"); // request dispatch on welcome page
 //				rd.include(request, response);
 			}
 
 		}
-		
+
 	}
 
 }

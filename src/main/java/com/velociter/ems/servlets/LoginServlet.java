@@ -105,15 +105,15 @@ public class LoginServlet extends HttpServlet {
 				rd.forward(request, response);
 			} else {
 				// if password is wrong then include on login page
-				writer.print("Password is Incorrect");
+				writer.print("<div class='errorMsg' align='center'>Password is Incorrect</div>");
 				RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 				rd.include(request, response);
 			}
 		} else {
 			// if username is wrong then include on login page
-			writer.print("Username is Incorrect");
-//			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
-//			rd.include(request, response);
+			writer.print("<div class='errorMsg' align='center'>Username is Incorrect</div>");
+			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+			rd.include(request, response);
 		}
 	}
 

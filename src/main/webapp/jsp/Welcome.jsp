@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%
-response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 if (session.getAttribute("empId") == null) {
 	response.sendRedirect("Login.jsp");
 } else {
@@ -13,6 +13,7 @@ if (session.getAttribute("empId") == null) {
 <head>
 <meta charset="UTF-8">
 <link rel="Stylesheet" href="../Style.css">
+<link rel="icon" type="image/x-icon" href="../Resources/vlogo.ico">
 <title>Welcome <%=first%></title>
 
 </head>
@@ -109,36 +110,9 @@ if (session.getAttribute("empId") == null) {
 		</div>
 		<div class="tabPanel">
 			Education Section in progress
-			<form action="EducationServlet" method="post">
-				<table>
-					<tr>
-						<td>Secondry :</td>
-						<td><input type="text" name="secondryEdu" required></td>
-					</tr>
-					<tr>
-						<td>Higher Secondry :</td>
-						<td><input type="text" name="highSecEdu" required></td>
-					</tr>
-					<tr>
-						<td>Graduation :</td>
-						<td><input type="text" name="graduation" required></td>
-					</tr>
-					<tr>
-						<td>Post Graduation :</td>
-						<td><input type="text" name="postGraduation" required></td>
-					</tr>
-					<tr>
-						<td colspan="2" align="center"><input type="submit"
-							value="Save"></td>
-					</tr>
-				</table>
-			</form>
+			<form action="EducationServlet" method="post"></form>
 		</div>
 	</div>
-
-	<br>
-	<br>
-	<a href="http://localhost:8081/EMS">Home.</a>
 	<script type="text/javascript" src="../Panel.js"></script>
 </body>
 </html>

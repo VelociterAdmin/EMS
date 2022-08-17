@@ -1,26 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-		<% 
-		response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
-	String empId = (String) session.getAttribute("empid");
-	if(empId == null){
-		
-	
-	%>
+<%
+response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+String empId = (String) session.getAttribute("empid");
+if (empId == null) {
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="../Resources/vlogo.ico">
 <title>Login</title>
 <link rel="stylesheet" href="../Style.css">
 </head>
 <body>
-<br><img src="../Resources/velociterlogo.png"  />
+	<br>
+	<img src="../Resources/velociterlogo.png" />
 	<form action="LoginServlet" method="Post">
 		<table class="LoginTable">
 			<tr>
 				<td>Username</td>
-				<td><input type="text" name="Username" required></td>
+				<td><input type="text" name="Username"
+					style="text-transform: lowercase;"
+					onkeyup="this.value = this.value.toLowerCase();" required></td>
 			</tr>
 			<tr>
 				<td>Password</td>
@@ -38,9 +40,8 @@
 
 </body>
 </html>
-<% 
-	}
-	else{
-		response.sendRedirect("Welcome.jsp");
-	}
+<%
+} else {
+response.sendRedirect("Welcome.jsp");
+}
 %>
