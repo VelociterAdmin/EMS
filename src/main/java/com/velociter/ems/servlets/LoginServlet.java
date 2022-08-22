@@ -71,7 +71,7 @@ public class LoginServlet extends HttpServlet {
 			Connection con = db.getCon(); // establishing the connection
 			PreparedStatement prestate = con.prepareStatement("select empid from employee where password=? and username=?");
 			prestate.setString(1, password); // set the password
-			prestate.setString(1, username); // set the username
+			prestate.setString(2, username); // set the username
 			
 			ResultSet set = prestate.executeQuery(); // get the data from database
 			checkpassword = set.next(); // storing the status of ResulSet
