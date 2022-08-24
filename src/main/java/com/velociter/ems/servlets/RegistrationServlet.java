@@ -59,7 +59,7 @@ public class RegistrationServlet extends HttpServlet {
 		employee.setDesignation(request.getParameter("designation"));
 		employee.setUsername(request.getParameter("username"));
 		employee.setPassword(request.getParameter("confirmPassword"));
-
+		employee.setReportingTo(request.getParameter("reportingTo"));
 		try {
 			DatabaseConnection dbcObj = new DatabaseConnection(); // creating object of DatabaseConnection
 			dbcObj.setCon(); // setting connection
@@ -94,7 +94,7 @@ public class RegistrationServlet extends HttpServlet {
 			} else {
 
 				PreparedStatement prepObj = con.prepareStatement( // it gives permission to write sql query
-						"insert into employee(firstname,lastname,empid,email,mobile_no,fathername,mothername,designation,username,password) values(?,?,?,?,?,?,?,?,?,?)");
+						"insert into employee(firstname,lastname,empid,email,mobile_no,fathername,mothername,designation,username,password,manager) values(?,?,?,?,?,?,?,?,?,?,?)");
 				prepObj.setString(1, employee.getFirstName()); // setting the values in sql query from employee class
 				prepObj.setString(2, employee.getLastName());
 				prepObj.setString(3, employee.getEmployeeId());
@@ -105,6 +105,7 @@ public class RegistrationServlet extends HttpServlet {
 				prepObj.setString(8, employee.getDesignation());
 				prepObj.setString(9, employee.getUsername());
 				prepObj.setString(10, employee.getPassword());
+				prepObj.setString(11, employee.getReportingTo());
 
 				ResultSet resultObj = prepObj.executeQuery(); // storing the status of query
 
@@ -122,9 +123,9 @@ public class RegistrationServlet extends HttpServlet {
 
 				ResultSet resultObj2 = prepObj2.executeQuery();
 				if (resultObj != null & resultObj2 != null) {
-					writter.print("<script>alert('Employee Registered Successfull...')</script>");
-//					RequestDispatcher rdObj = request.getRequestDispatcher("Login.jsp");
-//					rdObj.forward(request, response);
+//					writter.print("<script>alert('Employee Registered Successfull...')</script>");
+					RequestDispatcher rdObj = request.getRequestDispatcher("Login.jsp");
+					rdObj.forward(request, response);
 				}
 			}
 

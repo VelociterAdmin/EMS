@@ -152,9 +152,9 @@ if (session.getAttribute("empId") == null) {
 					%>
 				</table>
 			</form>
-
 		</div>
 	</div>
+	<a href="../ReportingEmpServlet">Reporting Employees</a>
 	<script type="text/javascript" src="../Panel.js"></script>
 </body>
 </html>

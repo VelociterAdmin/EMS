@@ -61,6 +61,10 @@ input[type=number] {
 				<td><input type="text" name="employeeMotherName" required></td>
 			</tr>
 			<tr>
+				<td>Reporting To :</td>
+				<td><input type="text" name="reportingTo" ></td>
+			</tr>
+			<tr>
 				<td colspan="2" align=center>Address</td>
 			</tr>
 			<tr>
@@ -109,7 +113,10 @@ input[type=number] {
 			</tr>
 			<tr>
 				<td>Designation :</td>
-				<td><input type="text" name="designation" required></td>
+				<td><select name="designation" required>
+				<option value="Employee">Employee</option>
+				<option value="Manager">Manager</option>
+				</select></td>
 			</tr>
 			<tr>
 				<td>Username :</td>

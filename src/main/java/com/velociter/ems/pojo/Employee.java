@@ -11,6 +11,15 @@ public class Employee {
 	private String designation;
 	private String username;
 	private String password;
+	private String reportingTo;
+
+	public String getReportingTo() {
+		return reportingTo;
+	}
+
+	public void setReportingTo(String reportingTo) {
+		this.reportingTo = reportingTo;
+	}
 
 	Address address = new Address();
 	Education education = new Education();
