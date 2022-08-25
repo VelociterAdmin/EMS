@@ -94,7 +94,7 @@ public class RegistrationServlet extends HttpServlet {
 			} else {
 
 				PreparedStatement prepObj = con.prepareStatement( // it gives permission to write sql query
-						"insert into employee(firstname,lastname,empid,email,mobile_no,fathername,mothername,designation,username,password,manager) values(?,?,?,?,?,?,?,?,?,?,?)");
+						"insert into employee(firstname,lastname,empid,email,mobile_no,fathername,mothername,designation,username,password,reportingto) values(?,?,?,?,?,?,?,?,?,?,?)");
 				prepObj.setString(1, employee.getFirstName()); // setting the values in sql query from employee class
 				prepObj.setString(2, employee.getLastName());
 				prepObj.setString(3, employee.getEmployeeId());

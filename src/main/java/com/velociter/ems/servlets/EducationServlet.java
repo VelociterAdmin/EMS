@@ -42,9 +42,9 @@ public class EducationServlet extends HttpServlet {
 		Connection con = db.getCon(); // establishing the connection
 
 		Employee employee = new Employee(); // Create object of employee class
-		employee.getEducation().setFieldName(request.getParameter("FieldName")); // setting the values in education
-																					// class
-		employee.getEducation().setNameOfSchool(request.getParameter("NameofSchool"));
+		// setting the values in education class
+		employee.getEducation().setFieldName(request.getParameter("FieldName")); 
+	    employee.getEducation().setNameOfSchool(request.getParameter("NameofSchool"));
 		employee.getEducation().setNameOfUniversity(request.getParameter("NameofUniversity"));
 		employee.getEducation().setGrades(request.getParameter("Grade"));
 
@@ -59,19 +59,18 @@ public class EducationServlet extends HttpServlet {
 			state.setString(3, employee.getEducation().getNameOfSchool());
 			state.setString(4, employee.getEducation().getNameOfUniversity());
 			state.setString(5, employee.getEducation().getGrades());
-			state.setString(6, (String) empId);
+			state.setString(6, empId);
 
 			ResultSet rs = state.executeQuery();
 			// if data is inserted then dispatch to welcome page
 			if (rs != null) {
-				
-				System.out.print("Inserted Education");
 				RequestDispatcher rd = request.getRequestDispatcher("WelcomeServlet");
-				rd.forward(request, response);
+				rd.include(request, response);
+				RequestDispatcher rd2 = request.getRequestDispatcher("Welcome.jsp");
+				rd2.include(request, response);
+				out.print("<script>showPanel(2,'gray');</script>");
 			}
-			else {
-				System.out.print("Inserted Failed");
-			}
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();

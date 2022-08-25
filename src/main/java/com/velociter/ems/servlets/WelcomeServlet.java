@@ -1,4 +1,3 @@
-
 package com.velociter.ems.servlets;
 
 import java.io.IOException;
@@ -34,16 +33,15 @@ public class WelcomeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		HttpSession session = request.getSession();
-//		String empId = (String) request.getAttribute("empID");
+		response.setContentType("text/html"); 		//set content type
+		PrintWriter out = response.getWriter();		//create object of PrintWriter
+		HttpSession session = request.getSession();		//create session 
 
-		String empid = (String) session.getAttribute("empid");
-		if (session.getAttribute("empid") == null) {
-			response.sendRedirect("Login.jsp");
+		String empid = (String) session.getAttribute("empid"); 	//getting empid
+		if (session.getAttribute("empid") == null) {	//if empid is null
+			response.sendRedirect("Login.jsp");			//redirect on login page
 		} else {
-
+					
 			try {
 				DatabaseConnection db = new DatabaseConnection(); // create DatabaseConnection class object
 				db.setCon();
@@ -53,17 +51,21 @@ public class WelcomeServlet extends HttpServlet {
 				prestate.setString(1, empid); // set string with indexing value
 				ResultSet rs = prestate.executeQuery(); // get the data from database
 				rs.next();
+				// getting data from employee table in Strings
 				String firstname = rs.getString("firstname");
 				String lastname = rs.getString("lastname");
 				String designation = rs.getString("designation");
 				String email = rs.getString("email");
 				String empId = rs.getString("empid");
+				String reportingTo=rs.getString("reportingto");
 				session.setAttribute("firstname", firstname); // set Attribute for get FirstName
 				session.setAttribute("lastname", lastname); // set Attribute for get lastName
 				session.setAttribute("designation", designation);// set Attribute for get designation
 				session.setAttribute("email", email); // set Attribute for get email
 				session.setAttribute("empId", empId); // set Attribute for get empid
-
+				session.setAttribute("reportingto",reportingTo);
+				
+				// PreparedStatement to write for SQL queries
 				PreparedStatement prestate2 = con.prepareStatement("select * from address where empid=?");
 				prestate2.setString(1, empid);
 				ResultSet rs2 = prestate2.executeQuery();
@@ -75,22 +77,23 @@ public class WelcomeServlet extends HttpServlet {
 				session.setAttribute("state", rs2.getString("state"));
 				session.setAttribute("pincode", rs2.getString("pincode"));
 				session.setAttribute("country", rs2.getString("country"));
-				System.out.println("welcomeServlet empid = "+empid);
+				// PreparedStatement to write for SQL queries
 				PreparedStatement edudetail=con.prepareStatement("select * from education where empid=?");
 				edudetail.setString(1,empid);
 				ResultSet rs3=edudetail.executeQuery();
+				//creating arraylist objects
 				ArrayList<String> fields = new ArrayList<String>();
 				ArrayList<String> school = new ArrayList<String>();
 				ArrayList<String> board = new ArrayList<String>();
 				ArrayList<String> grade = new ArrayList<String>();
 				
 				while(rs3.next()) {
-								
+				//adding data from employee to Arraylist			
 					fields.add(rs3.getString("FieldName"));
 					school.add(rs3.getString("School"));
 					board.add(rs3.getString("University"));
 					grade.add(rs3.getString("Grades"));
-					
+				//setting attributes
 					session.setAttribute("fields", fields);
 					session.setAttribute("school", school);
 					session.setAttribute("university", board);
@@ -103,7 +106,7 @@ public class WelcomeServlet extends HttpServlet {
 				response.sendRedirect("Welcome.jsp");
 			} catch (SQLException e) {
 				e.printStackTrace();
-				out.print("<html><body>" + e + "</body></html>");
+				
 //				RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp"); // request dispatch on welcome page
 //				rd.include(request, response);
 			}

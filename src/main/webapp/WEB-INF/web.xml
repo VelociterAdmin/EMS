@@ -20,8 +20,24 @@
 		<servlet-class>com.velociter.ems.servlets.WelcomeServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>WelcomeEmployee1</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.WelcomeServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>EducationServlet</servlet-name>
 		<servlet-class>com.velociter.ems.servlets.EducationServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.UpdateServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateAddress</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.UpdateAddServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateEducation</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.UpdateEduServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LogoutServlet</servlet-name>
@@ -44,15 +60,30 @@
 		<url-pattern>/jsp/WelcomeServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
+		<servlet-name>WelcomeEmployee1</servlet-name>
+		<url-pattern>/WelcomeServlet1</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>EducationServlet</servlet-name>
 		<url-pattern>/jsp/EducationServlet</url-pattern>
-
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateServlet</servlet-name>
+		<url-pattern>/jsp/UpdateServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateAddress</servlet-name>
+		<url-pattern>/jsp/UpdateAddServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateEducation</servlet-name>
+		<url-pattern>/jsp/UpdateEducation1</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>LogoutServlet</servlet-name>
 		<url-pattern>/jsp/LogoutServlet</url-pattern>
 	</servlet-mapping>
-		<servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>ReportingEmpServlet</servlet-name>
 		<url-pattern>/ReportingEmpServlet</url-pattern>
 	</servlet-mapping>
