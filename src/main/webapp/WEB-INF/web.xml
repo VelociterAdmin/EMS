@@ -68,6 +68,26 @@
 		<servlet-name>CustomerRegistrationServlet</servlet-name>
 		<servlet-class>com.velociter.ems.servlets.CustomerRegistrationServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>SongServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.SongDetailsServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Animal</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.AnimalRegistrationServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Food</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.DishServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Order</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.OrderServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Training</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.TrainingServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/jsp/RegistrationServlet</url-pattern>
@@ -127,5 +147,25 @@
 	<servlet-mapping>
 		<servlet-name>CustomerRegistrationServlet</servlet-name>
 		<url-pattern>/jsp/CustomerRegistrationServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SongServlet</servlet-name>
+		<url-pattern>/jsp/SongDetailsServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Animal</servlet-name>
+		<url-pattern>/jsp/AnimalRegistrationServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Food</servlet-name>
+		<url-pattern>/jsp/DishServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Order</servlet-name>
+		<url-pattern>/jsp/OrderServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Training</servlet-name>
+		<url-pattern>/jsp/TrainingServlet</url-pattern>
 	</servlet-mapping>
 </web-app>

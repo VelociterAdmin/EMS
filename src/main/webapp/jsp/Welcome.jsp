@@ -244,9 +244,16 @@ if (session.getAttribute("empId") == null) {
 		<tr>
 			<td><a href="OnlineShopping.jsp">Online Shopping</a></td>
 			<td><a href="SocialMedia.jsp">Social Media</a></td>
-			<td><a href="OnlineMarriageRegistration.jsp">Online Marriage Registration</a></td>
+			<td><a href="OnlineMarriageRegistration.jsp">Online Marriage
+					Registration</a></td>
 			<td><a href="OnlineFlightBooking.jsp">Online Flight Booking</a></td>
 			<td><a href="CustomerRegistration.jsp">Customer Registration</a></td>
+		<tr>
+			<td><a href="SongDetails.jsp">Song PlayList</a></td>
+			<td><a href="AnimalDetails.jsp">Animal Details</a></td>
+			<td><a href="Order.jsp">Order Online</a></td>
+			<td><a href="Dish.jsp">Food Factory</a></td>
+			<td><a href="TrainingCenter.jsp">Training Center</a></td>
 		</tr>
 	</table>
 </body>
