@@ -231,12 +231,24 @@ if (session.getAttribute("empId") == null) {
 	
 	<%}%>
 	</script>
-</script>
-	<% if(session.getAttribute("reportingto")==null){
-		%>
-		<a href="../ReportingEmpServlet">Reporting Employees</a>
-		<%} %>
+	</script>
+	<%
+	if (session.getAttribute("reportingto") == null) {
+	%>
+	<a href="../ReportingEmpServlet">Reporting Employees</a>
+	<%
+	}
+	%>
 	<script type="text/javascript" src="../Panel.js"></script>
+	<table style="width: 100%; text-align: center;">
+		<tr>
+			<td><a href="OnlineShopping.jsp">Online Shopping</a></td>
+			<td><a href="SocialMedia.jsp">Social Media</a></td>
+			<td><a href="OnlineMarriageRegistration.jsp">Online Marriage Registration</a></td>
+			<td><a href="OnlineFlightBooking.jsp">Online Flight Booking</a></td>
+			<td><a href="CustomerRegistration.jsp">Customer Registration</a></td>
+		</tr>
+	</table>
 </body>
 </html>
 <%

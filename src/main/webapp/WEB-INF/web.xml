@@ -47,6 +47,27 @@
 		<servlet-name>ReportingEmpServlet</servlet-name>
 		<servlet-class>com.velociter.ems.servlets.ReportingEmpServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>OnlineShopping</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.OnlineShoppingServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SocialMediaServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.SocialMediaServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MarriageRegistrationServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.MarriageRegistrationServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>flightBookingServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.flightBookingServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CustomerRegistrationServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.CustomerRegistrationServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/jsp/RegistrationServlet</url-pattern>
@@ -86,5 +107,25 @@
 	<servlet-mapping>
 		<servlet-name>ReportingEmpServlet</servlet-name>
 		<url-pattern>/ReportingEmpServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OnlineShopping</servlet-name>
+		<url-pattern>/jsp/OnlineShoppingServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SocialMediaServlet</servlet-name>
+		<url-pattern>/jsp/SocialMediaServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MarriageRegistrationServlet</servlet-name>
+		<url-pattern>/jsp/MarriageRegistrationServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>flightBookingServlet</servlet-name>
+		<url-pattern>/jsp/flightBookingServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CustomerRegistrationServlet</servlet-name>
+		<url-pattern>/jsp/CustomerRegistrationServlet</url-pattern>
 	</servlet-mapping>
 </web-app>

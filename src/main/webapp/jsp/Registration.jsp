@@ -11,7 +11,7 @@ ArrayList<String> list = op.getCountries();
 <html>
 <head>
 <link rel="Stylesheet" href="../Style.css">
-<link rel="icon" type="image/x-icon" href="../Resources/vlogo.ico"> 
+<link rel="icon" type="image/x-icon" href="../Resources/vlogo.ico">
 <meta charset="UTF-8">
 <title>Registration</title>
 <style type="text/css">
@@ -46,7 +46,8 @@ input[type=number] {
 			<tr>
 				<td>Email :</td>
 				<td><input type="email" name="employeeEmailId"
-					style="text-transform: lowercase;"  onkeyup="this.value = this.value.toLowerCase();" required></td>
+					style="text-transform: lowercase;"
+					onkeyup="this.value = this.value.toLowerCase();" required></td>
 			</tr>
 			<tr>
 				<td>Mobile Number :</td>
@@ -62,7 +63,7 @@ input[type=number] {
 			</tr>
 			<tr>
 				<td>Reporting To :</td>
-				<td><input type="text" name="reportingTo" ></td>
+				<td><input type="text" name="reportingTo"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align=center>Address</td>
@@ -114,14 +115,15 @@ input[type=number] {
 			<tr>
 				<td>Designation :</td>
 				<td><select name="designation" required>
-				<option value="Employee">Employee</option>
-				<option value="Manager">Manager</option>
+						<option value="Employee">Employee</option>
+						<option value="Manager">Manager</option>
 				</select></td>
 			</tr>
 			<tr>
 				<td>Username :</td>
 				<td><input type="text" name="username"
-					style="text-transform: lowercase;" onkeyup="this.value = this.value.toLowerCase();" required></td>
+					style="text-transform: lowercase;"
+					onkeyup="this.value = this.value.toLowerCase();" required></td>
 			</tr>
 			<tr>
 				<td>Password :</td>

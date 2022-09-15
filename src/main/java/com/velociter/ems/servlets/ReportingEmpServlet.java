@@ -35,14 +35,14 @@ public class ReportingEmpServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-//		System.out.println("ReportingEmpServlet");
+
 		DatabaseConnection dbCon = new DatabaseConnection();
 		dbCon.setCon();
 		Connection con = dbCon.getCon();
 		HttpSession session = request.getSession();
 		String reportingTo = (String) session.getAttribute("empId");
 		if (true) {
-//			response.sendRedirect("ReportingEmployees.jsp");
+
 			try {
 				
 				PreparedStatement psObj = con.prepareStatement(
@@ -70,6 +70,7 @@ public class ReportingEmpServlet extends HttpServlet {
 				session.setAttribute("designations", designation);
 				session.setAttribute("emails", email);
 				session.setAttribute("empids", empid);
+				session.setAttribute("mobile_nos", mobilenumber);
 
 //				RequestDispatcher rd = request.getRequestDispatcher("/jsp/ReportingEmployees.jsp");
 //				rd.forward(request, response);
