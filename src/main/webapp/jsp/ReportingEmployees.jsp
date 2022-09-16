@@ -40,7 +40,7 @@
 
 			<td>Mobile Number</td>
 
-			<td>designation</td>
+			<td>Designation</td>
 
 
 
