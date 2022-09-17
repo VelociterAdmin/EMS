@@ -31,8 +31,8 @@ ArrayList<String> list = op.getCountries();
 			<tr>
 				<td>Last Name :</td>
 				<td><input type="text"
-					oninput="value=value.replace(/[^a-zA-Z ]/g,'')" 
-					name="lastName" required></td>
+					oninput="value=value.replace(/[^a-zA-Z ]/g,'')" name="lastName"
+					required></td>
 			</tr>
 			<tr>
 				<td>Mobile No :</td>
@@ -58,8 +58,8 @@ ArrayList<String> list = op.getCountries();
 			<tr>
 				<td>City :</td>
 				<td><input type="text"
-					oninput="value=value.replace(/[^a-zA-Z ]/g,'')" 
-					name="city" required></td>
+					oninput="value=value.replace(/[^a-zA-Z ]/g,'')" name="city"
+					required></td>
 			</tr>
 			<tr>
 				<td>Country :</td>
@@ -77,7 +77,7 @@ ArrayList<String> list = op.getCountries();
 			<tr>
 				<td>PinCode :</td>
 				<td><input type="text"
-					oninput="this.value=this.value.replace(/[^1-9]/g,'').replace(/(\..*)\./g,'$1')"
+					oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(\..*)\./g,'$1')"
 					name="pinCode" minlength="6" maxlength="6" required></td>
 			</tr>
 			<td colspan=2 align=center><input type="submit"

@@ -68,6 +68,7 @@
 		<servlet-name>CustomerRegistrationServlet</servlet-name>
 		<servlet-class>com.velociter.ems.servlets.CustomerRegistrationServlet</servlet-class>
 	</servlet>
+
 	<servlet>
 		<servlet-name>SongServlet</servlet-name>
 		<servlet-class>com.velociter.ems.servlets.SongDetailsServlet</servlet-class>
@@ -128,26 +129,7 @@
 		<servlet-name>ReportingEmpServlet</servlet-name>
 		<url-pattern>/ReportingEmpServlet</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>OnlineShopping</servlet-name>
-		<url-pattern>/jsp/OnlineShoppingServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>SocialMediaServlet</servlet-name>
-		<url-pattern>/jsp/SocialMediaServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>MarriageRegistrationServlet</servlet-name>
-		<url-pattern>/jsp/MarriageRegistrationServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>flightBookingServlet</servlet-name>
-		<url-pattern>/jsp/flightBookingServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>CustomerRegistrationServlet</servlet-name>
-		<url-pattern>/jsp/CustomerRegistrationServlet</url-pattern>
-	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>SongServlet</servlet-name>
 		<url-pattern>/jsp/SongDetailsServlet</url-pattern>
@@ -167,5 +149,25 @@
 	<servlet-mapping>
 		<servlet-name>Training</servlet-name>
 		<url-pattern>/jsp/TrainingServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OnlineShopping</servlet-name>
+		<url-pattern>/jsp/OnlineShoppingServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SocialMediaServlet</servlet-name>
+		<url-pattern>/jsp/SocialMediaServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MarriageRegistrationServlet</servlet-name>
+		<url-pattern>/jsp/MarriageRegistrationServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>flightBookingServlet</servlet-name>
+		<url-pattern>/jsp/flightBookingServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CustomerRegistrationServlet</servlet-name>
+		<url-pattern>/jsp/CustomerRegistrationServlet</url-pattern>
 	</servlet-mapping>
 </web-app>
