@@ -255,6 +255,13 @@ if (session.getAttribute("empId") == null) {
 			<td><a href="Dish.jsp">Food Factory</a></td>
 			<td><a href="TrainingCenter.jsp">Training Center</a></td>
 		</tr>
+		<tr>
+			<td><a href="MobileRecharge.jsp">MobileRecharge</a></td>
+			<td><a href="Dress.jsp">Dress Order</a></td>
+			<td><a href="Electronic.jsp">Electronic Product</a></td>
+			<td><a href="MovieTicket.jsp">Movie Ticket</a></td>
+			<td><a href="Student.jsp">Student </a></td>
+		</tr>
 	</table>
 </body>
 </html>

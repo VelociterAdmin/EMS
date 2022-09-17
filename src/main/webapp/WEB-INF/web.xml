@@ -170,4 +170,44 @@
 		<servlet-name>CustomerRegistrationServlet</servlet-name>
 		<url-pattern>/jsp/CustomerRegistrationServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>MobileRechargeServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.MobileRechargeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MobileRechargeServlet</servlet-name>
+		<url-pattern>/jsp/MobileRechargeServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DressServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.DressServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DressServlet</servlet-name>
+		<url-pattern>/jsp/DressServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ElectronicServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.ElectronicServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ElectronicServlet</servlet-name>
+		<url-pattern>/jsp/ElectronicServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>MovieTicketServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.MovieTicketServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MovieTicketServlet</servlet-name>
+		<url-pattern>/jsp/MovieTicketServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>StudentServlet</servlet-name>
+		<servlet-class>com.velociter.ems.servlets.StudentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentServlet</servlet-name>
+		<url-pattern>/jsp/StudentServlet</url-pattern>
+	</servlet-mapping>
 </web-app>
